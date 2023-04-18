@@ -22,4 +22,10 @@ public enum Spaces: Float {
     
     /// Space 8.0
     case space04 = 8.0
+    
+    /// Space 10.0
+    case space05 = 10.0
+    
+    /// Space 12.0
+    case space06 = 12.0
 }

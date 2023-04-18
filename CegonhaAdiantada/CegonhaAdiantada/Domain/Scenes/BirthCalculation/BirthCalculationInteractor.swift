@@ -20,9 +20,11 @@ final class BirthCalculationInteractor {
 
 extension BirthCalculationInteractor: BirthCalculationBusinessLogic {
     func calculateBabyBirthdays(request: Request) {
+        var totalDays: Int = .zero
+        var totalWeeks: Int = .zero
         let birthDays: Int = Int(request.days ?? .empty) ?? .zero
         let birthWeeks: Int = Int(request.weeks ?? .empty) ?? .zero
-        let birthdayValue: Date? = request.date
+        let birthdayValue = request.date
 
         if let birthdayValue {
             let weeksUntilNow = Calendar.current.dateComponents([.weekOfYear, .day], from: birthdayValue, to: Date())
@@ -35,7 +37,10 @@ extension BirthCalculationInteractor: BirthCalculationBusinessLogic {
                 days = remainder
             }
             
-            print("🚧 A criança tem \(birthWeeks + weeks) semanas e \(days) dia(s)")
+            totalWeeks = birthWeeks + weeks
+            totalDays = totalWeeks * Date.week + days
+            
+            print("🚧 A criança tem \(totalWeeks) semanas e \(days) dia(s), um total de \(totalDays) dia(s).")
         }
     }
 }
