@@ -27,10 +27,13 @@ struct BirthCalculationView: View {
     var body: some View {
         NavigationView {
             ZStack {
+                Pentagon()
+                    .fill(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.5))
+                
                 VStack {
                     VStack {
                         VStack(alignment: .leading) {
-                            Text("Quantas semanas e dias o recém nascido tinha na data de seu nascimento?")
+                            Text("Quantas semanas e dias o recém nascido tinha na data do seu nascimento?")
                             HStack {
                                 TextField(text: $birthCalculation.weeks.maxlenght(3)) {
                                     Text("Semanas")
@@ -66,16 +69,12 @@ struct BirthCalculationView: View {
                             )
                         }
                     }
-                    .cornerRadius(10)
-                    .padding(.all, .space06)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
-                    )
+                    .padding([.top], -150.0)
                 }
                 .padding(.all, .space06)
                 .navigationTitle("Calcular")
             }
+            .edgesIgnoringSafeArea(.bottom)
         }
     }
 }
@@ -83,5 +82,36 @@ struct BirthCalculationView: View {
 struct BirthCalculationView_Previews: PreviewProvider {
     static var previews: some View {
         return BirthCalculationView()
+    }
+}
+
+public struct Pentagon: Shape {
+    /// Creates a square bottomed pentagon.
+    public init() {}
+    
+    var insetAmount: CGFloat = 0
+    
+    public func path(in rect: CGRect) -> Path {
+        let insetRect: CGRect = rect.insetBy(dx: insetAmount, dy: insetAmount)
+        let width = insetRect.width
+        let height = insetRect.height
+
+        return Path { path in
+            path.move(to:    CGPoint(x: 0, y: 0))
+            path.addLine(to: CGPoint(x: 0, y: height/2))
+            path.addLine(to: CGPoint(x: 0, y: height))
+            path.addLine(to: CGPoint(x: width, y: height))
+            path.addLine(to: CGPoint(x: width, y: height/5))
+            path.closeSubpath()
+        }
+        .offsetBy(dx: insetAmount, dy: insetAmount)
+    }
+}
+
+extension Pentagon: InsettableShape {
+    public func inset(by amount: CGFloat) -> some InsettableShape {
+        var shape = self
+        shape.insetAmount += amount
+        return shape
     }
 }
