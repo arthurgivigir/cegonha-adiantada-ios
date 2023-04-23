@@ -7,6 +7,7 @@
 //
 import SwiftUI
 import InfiniteLoop
+import Lottie
 
 protocol BirthCalculationDisplayLogic {
     func display(viewModel: BirthCalculation.LoadBirthCalculation.ViewModel)
@@ -21,44 +22,109 @@ struct BirthCalculationView: View {
     typealias Request = BirthCalculation.LoadBirthCalculation.Request
     var interactor: BirthCalculationBusinessLogic?
     
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        return formatter
+    }
+    
     @ObservedObject var birthCalculation = BirthCalculationDataStore()
     @State private var calendarId: Int = 0
+
+    init() {
+        //Use this if NavigationBarTitle is with Large Font
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            .foregroundColor: UIColor(Colors.quaternary.color)
+        ]
+    }
     
     var body: some View {
         NavigationView {
             ZStack {
-                Pentagon()
-                    .fill(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.5))
+                GeometryReader { geometry in
+                    VStack {
+                        LottieView(filename: .babyMom)
+                            .frame(width: geometry.size.width/2.0, height: geometry.size.height/3)
+                            .offset(x: geometry.size.width - geometry.size.width/2.2, y: -(geometry.size.height/8))
+                        Spacer()
+                    }
+                }
+
+                PentagonShape()
+                    .fill(Colors.primary.color.opacity(0.6))
                 
                 VStack {
                     VStack {
                         VStack(alignment: .leading) {
                             Text("Quantas semanas e dias o recém nascido tinha na data do seu nascimento?")
+                                .foregroundColor(Colors.primaryFontColor.color)
+                                .font(
+                                    .system(
+                                        .title3,
+                                        design: .rounded
+                                    )
+                                    .weight(.medium)
+                                )
+                            
                             HStack {
-                                TextField(text: $birthCalculation.weeks.maxlenght(3)) {
-                                    Text("Semanas")
-                                }
-                                .keyboardType(.decimalPad)
+                                TextField("Semanas", text: $birthCalculation.weeks.maxlenght(3))
+                                    .textFieldStyle(
+                                        GradientTextFieldBackground(
+                                            systemImageString: "calendar"
+                                        )
+                                    )
                                 
-                                TextField(text: $birthCalculation.days.maxlenght(3)) {
-                                    Text("Dias")
-                                }
-                                .keyboardType(.decimalPad)
+                                TextField("Dias", text: $birthCalculation.days.maxlenght(3))
+                                    .textFieldStyle(
+                                        GradientTextFieldBackground(
+                                            systemImageString: "calendar"
+                                        )
+                                    )
                             }
+                            .padding([.top, .bottom], CGFloat(Spaces.space04.rawValue))
+                        }
+                
+                        HStack {
+                            Text("Data de Nascimento")
+                                .foregroundColor(Colors.primaryFontColor.color)
+                                .font(
+                                    .system(
+                                        .title3,
+                                        design: .rounded
+                                    )
+                                    .weight(.thin)
+                                )
+
+                            DatePicker(
+                                "Data de Nascimento",
+                                selection: $birthCalculation.date,
+                                displayedComponents: [.date]
+                            )
+                            .id(calendarId)
+                            .onChange(of: birthCalculation.date) { _ in
+                                calendarId += 1
+                            }
+                            .buttonStyle(.bordered)
+                            .font(
+                                .system(
+                                    .body,
+                                    design: .rounded
+                                )
+                                .weight(.light)
+                            )
+                            .tint(Colors.quaternary.color)
+                            .foregroundColor(Colors.quaternary.color)
+                            .colorInvert()
+                            .labelsHidden()
+                            .colorMultiply(Colors.primaryFontColor.color)
+                            .environment(\.locale, Locale.init(identifier: "pt-br"))
                         }
                         
-                        DatePicker(
-                            "Data de Nascimento",
-                            selection: $birthCalculation.date,
-                            displayedComponents: [.date]
-                        )
-                        .id(calendarId)
-                        .id(calendarId)
-                        .onChange(of: birthCalculation.date) { _ in
-                            calendarId += 1
-                        }
-                        
-                        Button("Calcular") {
+                        LargeButton(
+                            title: "Calcular",
+                            backgroundColor: Color.white,
+                            foregroundColor: Colors.quaternary.color
+                        ) {
                             interactor?.calculateBabyBirthdays(
                                 request:
                                     Request(
@@ -68,11 +134,14 @@ struct BirthCalculationView: View {
                                     )
                             )
                         }
+                        .padding([.top], 20)
                     }
-                    .padding([.top], -150.0)
+                    .padding([.top], -180.0)
                 }
-                .padding(.all, .space06)
-                .navigationTitle("Calcular")
+                .padding(.all, 30)
+                .navigationBarTitle(
+                    Text("Calcular")
+                )
             }
             .edgesIgnoringSafeArea(.bottom)
         }
@@ -82,36 +151,5 @@ struct BirthCalculationView: View {
 struct BirthCalculationView_Previews: PreviewProvider {
     static var previews: some View {
         return BirthCalculationView()
-    }
-}
-
-public struct Pentagon: Shape {
-    /// Creates a square bottomed pentagon.
-    public init() {}
-    
-    var insetAmount: CGFloat = 0
-    
-    public func path(in rect: CGRect) -> Path {
-        let insetRect: CGRect = rect.insetBy(dx: insetAmount, dy: insetAmount)
-        let width = insetRect.width
-        let height = insetRect.height
-
-        return Path { path in
-            path.move(to:    CGPoint(x: 0, y: 0))
-            path.addLine(to: CGPoint(x: 0, y: height/2))
-            path.addLine(to: CGPoint(x: 0, y: height))
-            path.addLine(to: CGPoint(x: width, y: height))
-            path.addLine(to: CGPoint(x: width, y: height/5))
-            path.closeSubpath()
-        }
-        .offsetBy(dx: insetAmount, dy: insetAmount)
-    }
-}
-
-extension Pentagon: InsettableShape {
-    public func inset(by amount: CGFloat) -> some InsettableShape {
-        var shape = self
-        shape.insetAmount += amount
-        return shape
     }
 }

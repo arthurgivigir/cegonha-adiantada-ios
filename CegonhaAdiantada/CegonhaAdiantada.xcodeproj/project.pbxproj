@@ -13,6 +13,13 @@
 		561C56D429E9FEA200E84508 /* BirthCalculationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C56CE29E9FEA200E84508 /* BirthCalculationView.swift */; };
 		561C56D529E9FEA200E84508 /* BirthCalculationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C56CF29E9FEA200E84508 /* BirthCalculationModel.swift */; };
 		561C56D629E9FEA200E84508 /* BirthCalculationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C56D029E9FEA200E84508 /* BirthCalculationConfigurator.swift */; };
+		562FC40529EF52D800D5C6E9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562FC40429EF52D800D5C6E9 /* Colors.swift */; };
+		562FC40B29F0164200D5C6E9 /* baby_mom.json in Resources */ = {isa = PBXBuildFile; fileRef = 562FC40A29F0164200D5C6E9 /* baby_mom.json */; };
+		56AA83E029EF4C540049ABB2 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 56AA83DF29EF4C540049ABB2 /* Lottie */; };
+		56AA83E629EF4E4C0049ABB2 /* LottieFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AA83E529EF4E4C0049ABB2 /* LottieFiles.swift */; };
+		56BDD1ED29F5CFE9004FF71F /* GradientTextFieldBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDD1EC29F5CFE9004FF71F /* GradientTextFieldBackground.swift */; };
+		56BDD1EF29F5D021004FF71F /* PentagonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDD1EE29F5D021004FF71F /* PentagonShape.swift */; };
+		56BDD1F129F5D071004FF71F /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDD1F029F5D071004FF71F /* LottieView.swift */; };
 		56FAED0B29E763E500022043 /* CegonhaAdiantadaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FAED0A29E763E500022043 /* CegonhaAdiantadaApp.swift */; };
 		56FAED0D29E763E500022043 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FAED0C29E763E500022043 /* ContentView.swift */; };
 		56FAED0F29E763E600022043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56FAED0E29E763E600022043 /* Assets.xcassets */; };
@@ -49,6 +56,12 @@
 		561C56CE29E9FEA200E84508 /* BirthCalculationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthCalculationView.swift; sourceTree = "<group>"; };
 		561C56CF29E9FEA200E84508 /* BirthCalculationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthCalculationModel.swift; sourceTree = "<group>"; };
 		561C56D029E9FEA200E84508 /* BirthCalculationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthCalculationConfigurator.swift; sourceTree = "<group>"; };
+		562FC40429EF52D800D5C6E9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		562FC40A29F0164200D5C6E9 /* baby_mom.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = baby_mom.json; sourceTree = "<group>"; };
+		56AA83E529EF4E4C0049ABB2 /* LottieFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieFiles.swift; sourceTree = "<group>"; };
+		56BDD1EC29F5CFE9004FF71F /* GradientTextFieldBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientTextFieldBackground.swift; sourceTree = "<group>"; };
+		56BDD1EE29F5D021004FF71F /* PentagonShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PentagonShape.swift; sourceTree = "<group>"; };
+		56BDD1F029F5D071004FF71F /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		56FAED0729E763E500022043 /* CegonhaAdiantada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CegonhaAdiantada.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FAED0A29E763E500022043 /* CegonhaAdiantadaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CegonhaAdiantadaApp.swift; sourceTree = "<group>"; };
 		56FAED0C29E763E500022043 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56FE443B29EB4C20007448B9 /* InfiniteLoop in Frameworks */,
+				56AA83E029EF4C540049ABB2 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,9 +118,18 @@
 			path = BirthCalculation;
 			sourceTree = "<group>";
 		};
+		562FC40329EF52CD00D5C6E9 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				562FC40429EF52D800D5C6E9 /* Colors.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
 		566B53FE29E9EBB3005A787D /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				56AA83E129EF4E200049ABB2 /* Common */,
 				566B53FF29E9EBBA005A787D /* Scenes */,
 			);
 			path = Domain;
@@ -118,6 +141,35 @@
 				561C56BE29E9FE6F00E84508 /* BirthCalculation */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		56AA83E129EF4E200049ABB2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				56BDD1EB29F5CFE9004FF71F /* Components */,
+				562FC40329EF52CD00D5C6E9 /* Colors */,
+				56AA83E229EF4E280049ABB2 /* LottieFiles */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		56AA83E229EF4E280049ABB2 /* LottieFiles */ = {
+			isa = PBXGroup;
+			children = (
+				562FC40A29F0164200D5C6E9 /* baby_mom.json */,
+				56AA83E529EF4E4C0049ABB2 /* LottieFiles.swift */,
+			);
+			path = LottieFiles;
+			sourceTree = "<group>";
+		};
+		56BDD1EB29F5CFE9004FF71F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				56BDD1EC29F5CFE9004FF71F /* GradientTextFieldBackground.swift */,
+				56BDD1EE29F5D021004FF71F /* PentagonShape.swift */,
+				56BDD1F029F5D071004FF71F /* LottieView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		56FAECFE29E763E500022043 = {
@@ -215,6 +267,7 @@
 			name = CegonhaAdiantada;
 			packageProductDependencies = (
 				56FE443A29EB4C20007448B9 /* InfiniteLoop */,
+				56AA83DF29EF4C540049ABB2 /* Lottie */,
 			);
 			productName = CegonhaAdiantada;
 			productReference = 56FAED0729E763E500022043 /* CegonhaAdiantada.app */;
@@ -288,6 +341,9 @@
 				Base,
 			);
 			mainGroup = 56FAECFE29E763E500022043;
+			packageReferences = (
+				56AA83DE29EF4C540049ABB2 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 56FAED0829E763E500022043 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -306,6 +362,7 @@
 			files = (
 				56FAED1229E763E600022043 /* Preview Assets.xcassets in Resources */,
 				56FAED0F29E763E600022043 /* Assets.xcassets in Resources */,
+				562FC40B29F0164200D5C6E9 /* baby_mom.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,15 +388,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				561C56D529E9FEA200E84508 /* BirthCalculationModel.swift in Sources */,
+				562FC40529EF52D800D5C6E9 /* Colors.swift in Sources */,
+				56BDD1F129F5D071004FF71F /* LottieView.swift in Sources */,
 				561C56D429E9FEA200E84508 /* BirthCalculationView.swift in Sources */,
 				56FAED1429E763E600022043 /* Persistence.swift in Sources */,
 				561C56D129E9FEA200E84508 /* BirthCalculationPresenter.swift in Sources */,
+				56BDD1EF29F5D021004FF71F /* PentagonShape.swift in Sources */,
+				56AA83E629EF4E4C0049ABB2 /* LottieFiles.swift in Sources */,
 				56FAED1729E763E600022043 /* CegonhaAdiantada.xcdatamodeld in Sources */,
 				561C56D229E9FEA200E84508 /* BirthCalculationDataStore.swift in Sources */,
 				561C56D629E9FEA200E84508 /* BirthCalculationConfigurator.swift in Sources */,
 				56FAED0D29E763E500022043 /* ContentView.swift in Sources */,
 				561C56D329E9FEA200E84508 /* BirthCalculationInteractor.swift in Sources */,
 				56FAED0B29E763E500022043 /* CegonhaAdiantadaApp.swift in Sources */,
+				56BDD1ED29F5CFE9004FF71F /* GradientTextFieldBackground.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,8 +566,10 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -533,8 +597,10 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -665,7 +731,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		56AA83DE29EF4C540049ABB2 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		56AA83DF29EF4C540049ABB2 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56AA83DE29EF4C540049ABB2 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		56FE443A29EB4C20007448B9 /* InfiniteLoop */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = InfiniteLoop;
