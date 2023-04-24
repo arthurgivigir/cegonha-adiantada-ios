@@ -34,7 +34,6 @@ public struct LargeButton: View {
     
     public var body: some View {
         HStack {
-            Spacer(minLength: LargeButton.buttonHorizontalMargins)
             Button(action:self.action) {
                 Text(self.title)
                     .frame(maxWidth:.infinity)
@@ -42,8 +41,7 @@ public struct LargeButton: View {
             .buttonStyle(LargeButtonStyle(backgroundColor: backgroundColor,
                                           foregroundColor: foregroundColor,
                                           isDisabled: disabled))
-                .disabled(self.disabled)
-            Spacer(minLength: LargeButton.buttonHorizontalMargins)
+            .disabled(self.disabled)
         }
         .frame(maxWidth:.infinity)
     }

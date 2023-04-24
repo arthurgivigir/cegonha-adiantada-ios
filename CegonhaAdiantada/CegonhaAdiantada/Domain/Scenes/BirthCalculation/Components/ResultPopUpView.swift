@@ -10,29 +10,23 @@ import InfiniteLoop
 
 struct ResultPopUpView: View {
     
-    @State var weeks: String = .zero
-    @State var days: String = .zero
-    @State var totalDays: String = .zero
+    @ObservedObject var birthCalculation: BirthCalculationDataStore
     
     let delegate: BirthCalculationDelegate
     
     init(
         delegate: BirthCalculationDelegate,
-        weeks: String,
-        days: String,
-        totalDays: String
+        birthCalculation: BirthCalculationDataStore
     ) {
         self.delegate = delegate
-        self.weeks = weeks
-        self.days = days
-        self.totalDays = totalDays
+        self.birthCalculation = birthCalculation
     }
     
     var body: some View {
         VStack {
             ZStack {
                 VStack {
-                    Text("A criança tem \(weeks) semanas e \(days) dia(s), um total de \(totalDays) dia(s).")
+                    Text("A criança tem \(birthCalculation.resultWeeks) semanas e \(birthCalculation.resultDays) dia(s), um total de \(birthCalculation.resultTotalDays) dia(s).")
                         .foregroundColor(Colors.primaryFontColor.color)
                         .font(
                             .system(
@@ -96,9 +90,10 @@ struct ResultPopUpView_Previews: PreviewProvider {
     static var previews: some View {
         ResultPopUpView(
             delegate: spy(),
-            weeks: "60",
-            days: "20",
-            totalDays: "256"
+            birthCalculation: BirthCalculationDataStore()
+//            weeks: "60",
+//            days: "20",
+//            totalDays: "256"
         )
     }
 }

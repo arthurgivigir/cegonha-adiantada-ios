@@ -24,8 +24,9 @@
 		56BDD1F729F5D335004FF71F /* ResultPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDD1F629F5D335004FF71F /* ResultPopUpView.swift */; };
 		56BDD1F929F5D71C004FF71F /* stork_baby.json in Resources */ = {isa = PBXBuildFile; fileRef = 56BDD1F829F5D71C004FF71F /* stork_baby.json */; };
 		56BDD1FB29F6AA3A004FF71F /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDD1FA29F6AA3A004FF71F /* TabBarView.swift */; };
+		56BDD1FE29F72E13004FF71F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDD1FD29F72E13004FF71F /* MainView.swift */; };
 		56FAED0B29E763E500022043 /* CegonhaAdiantadaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FAED0A29E763E500022043 /* CegonhaAdiantadaApp.swift */; };
-		56FAED0D29E763E500022043 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FAED0C29E763E500022043 /* ContentView.swift */; };
+		56FAED0D29E763E500022043 /* ContentPersistenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FAED0C29E763E500022043 /* ContentPersistenceView.swift */; };
 		56FAED0F29E763E600022043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56FAED0E29E763E600022043 /* Assets.xcassets */; };
 		56FAED1229E763E600022043 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56FAED1129E763E600022043 /* Preview Assets.xcassets */; };
 		56FAED1429E763E600022043 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FAED1329E763E600022043 /* Persistence.swift */; };
@@ -69,9 +70,10 @@
 		56BDD1F629F5D335004FF71F /* ResultPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPopUpView.swift; sourceTree = "<group>"; };
 		56BDD1F829F5D71C004FF71F /* stork_baby.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stork_baby.json; sourceTree = "<group>"; };
 		56BDD1FA29F6AA3A004FF71F /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		56BDD1FD29F72E13004FF71F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		56FAED0729E763E500022043 /* CegonhaAdiantada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CegonhaAdiantada.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FAED0A29E763E500022043 /* CegonhaAdiantadaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CegonhaAdiantadaApp.swift; sourceTree = "<group>"; };
-		56FAED0C29E763E500022043 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		56FAED0C29E763E500022043 /* ContentPersistenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPersistenceView.swift; sourceTree = "<group>"; };
 		56FAED0E29E763E600022043 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56FAED1129E763E600022043 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		56FAED1329E763E600022043 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		566B53FF29E9EBBA005A787D /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				56BDD1FC29F72DF7004FF71F /* Main */,
 				561C56BE29E9FE6F00E84508 /* BirthCalculation */,
 			);
 			path = Scenes;
@@ -191,6 +194,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		56BDD1FC29F72DF7004FF71F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				56BDD1FD29F72E13004FF71F /* MainView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		56FAECFE29E763E500022043 = {
 			isa = PBXGroup;
 			children = (
@@ -218,7 +229,7 @@
 				56FE443729EB4B6A007448B9 /* Frameworks */,
 				566B53FE29E9EBB3005A787D /* Domain */,
 				56FAED0A29E763E500022043 /* CegonhaAdiantadaApp.swift */,
-				56FAED0C29E763E500022043 /* ContentView.swift */,
+				56FAED0C29E763E500022043 /* ContentPersistenceView.swift */,
 				56FAED0E29E763E600022043 /* Assets.xcassets */,
 				56FAED1329E763E600022043 /* Persistence.swift */,
 				56FAED1829E763E600022043 /* Info.plist */,
@@ -410,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56BDD1FB29F6AA3A004FF71F /* TabBarView.swift in Sources */,
+				56BDD1FE29F72E13004FF71F /* MainView.swift in Sources */,
 				561C56D529E9FEA200E84508 /* BirthCalculationModel.swift in Sources */,
 				562FC40529EF52D800D5C6E9 /* Colors.swift in Sources */,
 				56BDD1F129F5D071004FF71F /* LottieView.swift in Sources */,
@@ -421,7 +433,7 @@
 				56FAED1729E763E600022043 /* CegonhaAdiantada.xcdatamodeld in Sources */,
 				561C56D229E9FEA200E84508 /* BirthCalculationDataStore.swift in Sources */,
 				561C56D629E9FEA200E84508 /* BirthCalculationConfigurator.swift in Sources */,
-				56FAED0D29E763E500022043 /* ContentView.swift in Sources */,
+				56FAED0D29E763E500022043 /* ContentPersistenceView.swift in Sources */,
 				561C56D329E9FEA200E84508 /* BirthCalculationInteractor.swift in Sources */,
 				56FAED0B29E763E500022043 /* CegonhaAdiantadaApp.swift in Sources */,
 				56BDD1F729F5D335004FF71F /* ResultPopUpView.swift in Sources */,
