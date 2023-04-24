@@ -23,6 +23,7 @@
 		56BDD1F429F5D18C004FF71F /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 56BDD1F329F5D18C004FF71F /* PopupView */; };
 		56BDD1F729F5D335004FF71F /* ResultPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDD1F629F5D335004FF71F /* ResultPopUpView.swift */; };
 		56BDD1F929F5D71C004FF71F /* stork_baby.json in Resources */ = {isa = PBXBuildFile; fileRef = 56BDD1F829F5D71C004FF71F /* stork_baby.json */; };
+		56BDD1FB29F6AA3A004FF71F /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDD1FA29F6AA3A004FF71F /* TabBarView.swift */; };
 		56FAED0B29E763E500022043 /* CegonhaAdiantadaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FAED0A29E763E500022043 /* CegonhaAdiantadaApp.swift */; };
 		56FAED0D29E763E500022043 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FAED0C29E763E500022043 /* ContentView.swift */; };
 		56FAED0F29E763E600022043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56FAED0E29E763E600022043 /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		56BDD1F029F5D071004FF71F /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		56BDD1F629F5D335004FF71F /* ResultPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPopUpView.swift; sourceTree = "<group>"; };
 		56BDD1F829F5D71C004FF71F /* stork_baby.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stork_baby.json; sourceTree = "<group>"; };
+		56BDD1FA29F6AA3A004FF71F /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		56FAED0729E763E500022043 /* CegonhaAdiantada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CegonhaAdiantada.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FAED0A29E763E500022043 /* CegonhaAdiantadaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CegonhaAdiantadaApp.swift; sourceTree = "<group>"; };
 		56FAED0C29E763E500022043 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				56BDD1F629F5D335004FF71F /* ResultPopUpView.swift */,
+				56BDD1FA29F6AA3A004FF71F /* TabBarView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56BDD1FB29F6AA3A004FF71F /* TabBarView.swift in Sources */,
 				561C56D529E9FEA200E84508 /* BirthCalculationModel.swift in Sources */,
 				562FC40529EF52D800D5C6E9 /* Colors.swift in Sources */,
 				56BDD1F129F5D071004FF71F /* LottieView.swift in Sources */,

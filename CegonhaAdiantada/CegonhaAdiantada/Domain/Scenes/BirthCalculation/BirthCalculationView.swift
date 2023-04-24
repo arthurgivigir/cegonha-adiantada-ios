@@ -185,6 +185,10 @@ struct BirthCalculationView: View {
             .onTapGesture {
                 self.hideKeyboard()
             }
+            .overlay(alignment: .bottom) {
+                TabBarView(selectedTab: $birthCalculation.selectedTabBar)
+                    .padding(.bottom, 20)
+            }
         }
     }
 }
