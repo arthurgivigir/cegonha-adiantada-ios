@@ -19,6 +19,10 @@ final class BirthCalculationPresenter {
 
 extension BirthCalculationPresenter: BirthCalculationPresentationLogic {
     func present(response: Response) {
-    //    view?.display(viewModel: viewModel)
+        let days = String(response.days ?? .zero)
+        let weeks = String(response.weeks ?? .zero)
+        let totalDays = String(response.totalDays ?? .zero)
+        
+        view?.display(viewModel: ViewModel(weeks: weeks, days: days, totalDays: totalDays))
     }
 }

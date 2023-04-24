@@ -8,14 +8,46 @@
 import SwiftUI
 import InfiniteLoop
 import Lottie
+import PopupView
+
+protocol BirthCalculationDelegate {
+    func saveBirthCalculation()
+    func closePopUp()
+}
 
 protocol BirthCalculationDisplayLogic {
     func display(viewModel: BirthCalculation.LoadBirthCalculation.ViewModel)
 }
 
 extension BirthCalculationView: BirthCalculationDisplayLogic {
-    func display(viewModel: BirthCalculation.LoadBirthCalculation.ViewModel) {}
-    func fetch() {}
+    func display(viewModel: BirthCalculation.LoadBirthCalculation.ViewModel) {
+        birthCalculation.showPopUp = true
+        birthCalculation.resultDays = viewModel.days
+        birthCalculation.resultWeeks = viewModel.weeks
+        birthCalculation.resultTotalDays = viewModel.totalDays
+    }
+    
+    func fetch() {
+        hideKeyboard()
+        interactor?.calculateBabyBirthdays(
+            request:
+                Request(
+                    weeks: birthCalculation.weeks,
+                    days: birthCalculation.days,
+                    date: birthCalculation.date
+                )
+        )
+    }
+}
+
+extension BirthCalculationView: BirthCalculationDelegate {
+    func closePopUp() {
+        birthCalculation.showPopUp = false
+    }
+    
+    func saveBirthCalculation() {
+        print("\(birthCalculation.resultTotalDays)")
+    }
 }
 
 struct BirthCalculationView: View {
@@ -34,7 +66,7 @@ struct BirthCalculationView: View {
     init() {
         //Use this if NavigationBarTitle is with Large Font
         UINavigationBar.appearance().largeTitleTextAttributes = [
-            .foregroundColor: UIColor(Colors.quaternary.color)
+            .foregroundColor: UIColor(Colors.primaryFontColor.color)
         ]
     }
     
@@ -44,14 +76,15 @@ struct BirthCalculationView: View {
                 GeometryReader { geometry in
                     VStack {
                         LottieView(filename: .babyMom)
-                            .frame(width: geometry.size.width/2.0, height: geometry.size.height/3)
-                            .offset(x: geometry.size.width - geometry.size.width/2.2, y: -(geometry.size.height/8))
+                            .frame(width: geometry.size.width/2.5, height: geometry.size.height/3)
+                            .offset(x: geometry.size.width - geometry.size.width/3, y: -(geometry.size.height/6))
                         Spacer()
                     }
                 }
 
                 PentagonShape()
-                    .fill(Colors.primary.color.opacity(0.6))
+                    .fill(Colors.primary.color.opacity(0.5))
+                    .ignoresSafeArea()
                 
                 VStack {
                     VStack {
@@ -125,31 +158,45 @@ struct BirthCalculationView: View {
                             backgroundColor: Color.white,
                             foregroundColor: Colors.quaternary.color
                         ) {
-                            interactor?.calculateBabyBirthdays(
-                                request:
-                                    Request(
-                                        weeks: birthCalculation.weeks,
-                                        days: birthCalculation.days,
-                                        date: birthCalculation.date
-                                    )
-                            )
+                            fetch()
                         }
-                        .padding([.top], 20)
                     }
                     .padding([.top], -180.0)
                 }
-                .padding(.all, 30)
+                .padding(.all, 20)
                 .navigationBarTitle(
                     Text("Calcular")
                 )
+                .popup(isPresented: $birthCalculation.showPopUp) {
+                    ResultPopUpView(
+                        delegate: self,
+                        weeks: birthCalculation.resultWeeks,
+                        days: birthCalculation.resultDays,
+                        totalDays: birthCalculation.resultTotalDays
+                    )
+                } customize: {
+                    $0.closeOnTapOutside(true)
+                        .position(.top)
+                        .animation(.spring())
+                        .isOpaque(true)
+                }
             }
             .edgesIgnoringSafeArea(.bottom)
+            .onTapGesture {
+                self.hideKeyboard()
+            }
         }
     }
 }
 
 struct BirthCalculationView_Previews: PreviewProvider {
     static var previews: some View {
-        return BirthCalculationView()
+        BirthCalculationView()
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
+            .previewDisplayName("iPhone 14")
+        
+        BirthCalculationView()
+            .previewDevice(PreviewDevice(rawValue: "iPhone 6s"))
+            .previewDisplayName("iPhone 6s")
     }
 }

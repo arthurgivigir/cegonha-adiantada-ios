@@ -9,4 +9,5 @@ import Foundation
 
 public extension String {
     static var empty: String { get { "" } }
+    static var zero: String { get { String(Int.zero) } }
 }

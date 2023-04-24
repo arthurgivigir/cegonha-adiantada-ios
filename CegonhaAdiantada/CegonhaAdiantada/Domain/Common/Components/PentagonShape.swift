@@ -23,7 +23,7 @@ public struct PentagonShape: Shape {
             path.addLine(to: CGPoint(x: 0, y: height/2))
             path.addLine(to: CGPoint(x: 0, y: height))
             path.addLine(to: CGPoint(x: width, y: height))
-            path.addLine(to: CGPoint(x: width, y: height/5))
+            path.addLine(to: CGPoint(x: width, y: height/3.5))
             path.closeSubpath()
         }
         .offsetBy(dx: insetAmount, dy: insetAmount)
