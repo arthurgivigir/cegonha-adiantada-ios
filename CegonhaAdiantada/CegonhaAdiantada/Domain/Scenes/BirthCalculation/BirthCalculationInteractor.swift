@@ -40,6 +40,7 @@ extension BirthCalculationInteractor: BirthCalculationBusinessLogic {
             totalWeeks = birthWeeks + weeks
             totalDays = totalWeeks * Date.week + days
             
+            presenter?.present(response: Response(weeks: totalWeeks, days: days, totalDays: totalDays))
             print("🚧 A criança tem \(totalWeeks) semanas e \(days) dia(s), um total de \(totalDays) dia(s).")
         }
     }

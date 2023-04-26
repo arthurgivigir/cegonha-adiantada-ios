@@ -7,81 +7,196 @@
 //
 import SwiftUI
 import InfiniteLoop
+import Lottie
+import PopupView
+
+protocol BirthCalculationDelegate {
+    func saveBirthCalculation()
+    func closePopUp()
+}
 
 protocol BirthCalculationDisplayLogic {
     func display(viewModel: BirthCalculation.LoadBirthCalculation.ViewModel)
 }
 
 extension BirthCalculationView: BirthCalculationDisplayLogic {
-    func display(viewModel: BirthCalculation.LoadBirthCalculation.ViewModel) {}
-    func fetch() {}
+    func display(viewModel: BirthCalculation.LoadBirthCalculation.ViewModel) {
+        birthCalculation.resultDays = viewModel.days
+        birthCalculation.resultWeeks = viewModel.weeks
+        birthCalculation.resultTotalDays = viewModel.totalDays
+        birthCalculation.showPopUp = true
+    }
+    
+    func fetch() {
+        hideKeyboard()
+        interactor?.calculateBabyBirthdays(
+            request:
+                Request(
+                    weeks: birthCalculation.weeks,
+                    days: birthCalculation.days,
+                    date: birthCalculation.date
+                )
+        )
+    }
+}
+
+extension BirthCalculationView: BirthCalculationDelegate {
+    func closePopUp() {
+        birthCalculation.showPopUp = false
+    }
+    
+    func saveBirthCalculation() {
+        print("\(birthCalculation.resultTotalDays)")
+    }
 }
 
 struct BirthCalculationView: View {
     typealias Request = BirthCalculation.LoadBirthCalculation.Request
     var interactor: BirthCalculationBusinessLogic?
     
-    @ObservedObject var birthCalculation = BirthCalculationDataStore()
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        return formatter
+    }
+    
+    @ObservedObject var birthCalculation: BirthCalculationDataStore
     @State private var calendarId: Int = 0
+
+    init(birthCalculation: BirthCalculationDataStore) {
+        self.birthCalculation = birthCalculation
+        
+        //Use this if NavigationBarTitle is with Large Font
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            .foregroundColor: UIColor(Colors.primaryFontColor.color)
+        ]
+    }
     
     var body: some View {
-        NavigationView {
-            ZStack {
+        ZStack {
+            GeometryReader { geometry in
                 VStack {
-                    VStack {
-                        VStack(alignment: .leading) {
-                            Text("Quantas semanas e dias o recém nascido tinha na data de seu nascimento?")
-                            HStack {
-                                TextField(text: $birthCalculation.weeks.maxlenght(3)) {
-                                    Text("Semanas")
-                                }
-                                .keyboardType(.decimalPad)
-                                
-                                TextField(text: $birthCalculation.days.maxlenght(3)) {
-                                    Text("Dias")
-                                }
-                                .keyboardType(.decimalPad)
-                            }
-                        }
-                        
-                        DatePicker(
-                            "Data de Nascimento",
-                            selection: $birthCalculation.date,
-                            displayedComponents: [.date]
-                        )
-                        .id(calendarId)
-                        .id(calendarId)
-                        .onChange(of: birthCalculation.date) { _ in
-                            calendarId += 1
-                        }
-                        
-                        Button("Calcular") {
-                            interactor?.calculateBabyBirthdays(
-                                request:
-                                    Request(
-                                        weeks: birthCalculation.weeks,
-                                        days: birthCalculation.days,
-                                        date: birthCalculation.date
-                                    )
+                    LottieView(filename: .babyMom)
+                        .frame(width: geometry.size.width/2.5, height: geometry.size.height/3)
+                        .offset(x: geometry.size.width - geometry.size.width/3, y: -(geometry.size.height/6))
+                    Spacer()
+                }
+            }
+            
+            PentagonShape()
+                .fill(Colors.primary.color.opacity(0.5))
+                .ignoresSafeArea()
+            
+            VStack {
+                VStack(alignment: .leading) {
+                    Text("Quantas semanas e dias o recém nascido tinha na data do seu nascimento?")
+                        .foregroundColor(Colors.primaryFontColor.color)
+                        .font(
+                            .system(
+                                .title3,
+                                design: .rounded
                             )
+                            .weight(.medium)
+                        )
+                    
+                    HStack(alignment: .top) {
+                        VStack(alignment: .leading, spacing: CGFloat(Spaces.space03.rawValue)) {
+                            TextField("Semanas", text: $birthCalculation.weeks.maxlenght(3))
+                                .textFieldStyle(
+                                    GradientTextFieldBackground(
+                                        systemImageString: "calendar"
+                                    )
+                                )
+                            
+                            
+                            Text("Data de Nascimento")
+                                .foregroundColor(Colors.primaryFontColor.color)
+                                .font(
+                                    .system(
+                                        .title3,
+                                        design: .rounded
+                                    )
+                                    .weight(.thin)
+                                )
+                                .padding(.top, 15)
+                        }
+                        
+                        VStack(alignment: .leading, spacing: CGFloat(Spaces.space03.rawValue)) {
+                            TextField("Dias", text: $birthCalculation.days.maxlenght(3))
+                                .textFieldStyle(
+                                    GradientTextFieldBackground(
+                                        systemImageString: "calendar"
+                                    )
+                                )
+                            
+                            DatePicker(
+                                "Data de Nascimento",
+                                selection: $birthCalculation.date,
+                                displayedComponents: [.date]
+                            )
+                            .id(calendarId)
+                            .onChange(of: birthCalculation.date) { _ in
+                                calendarId += 1
+                            }
+                            .buttonStyle(.bordered)
+                            .font(
+                                .system(
+                                    .body,
+                                    design: .rounded
+                                )
+                                .weight(.light)
+                            )
+                            .tint(Colors.primary.color)
+                            .foregroundColor(Colors.primary.color)
+                            .colorInvert()
+                            .labelsHidden()
+                            .colorMultiply(Colors.primaryFontColor.color)
+                            .environment(\.locale, Locale.init(identifier: "pt-br"))
+                            .padding(.top, 10)
                         }
                     }
-                    .cornerRadius(10)
-                    .padding(.all, .space06)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
-                    )
+                    
+                    LargeButton(
+                        title: "Calcular",
+                        backgroundColor: Color.white,
+                        foregroundColor: Colors.primary.color
+                    ) {
+                        fetch()
+                    }
                 }
-                .padding(.all, .space06)
-                .navigationTitle("Calcular")
+                .padding([.top], -180.0)
+                .padding(.horizontal, .space06)
             }
+            .navigationBarTitle(
+                Text("Calcular")
+            )
+            .popup(isPresented: $birthCalculation.showPopUp) {
+                ResultPopUpView(
+                    delegate: self,
+                    birthCalculation: birthCalculation
+                )
+            } customize: {
+                $0.closeOnTapOutside(true)
+                    .position(.top)
+                    .animation(.spring())
+                    .isOpaque(true)
+            }
+        }
+        .edgesIgnoringSafeArea(.bottom)
+        .onTapGesture {
+            self.hideKeyboard()
         }
     }
 }
 
 struct BirthCalculationView_Previews: PreviewProvider {
     static var previews: some View {
-        return BirthCalculationView()
+        BirthCalculationView(birthCalculation: BirthCalculationDataStore())
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
+            .previewDisplayName("iPhone 14")
+        
+        BirthCalculationView(birthCalculation: BirthCalculationDataStore())
+            .previewDevice(PreviewDevice(rawValue: "iPhone 6s"))
+            .previewDisplayName("iPhone 6s")
     }
 }
