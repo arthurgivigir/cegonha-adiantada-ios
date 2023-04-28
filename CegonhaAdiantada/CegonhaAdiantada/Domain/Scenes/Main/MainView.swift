@@ -9,29 +9,28 @@ import SwiftUI
 
 struct MainView: View {
     @ObservedObject var birthCalculation = BirthCalculationDataStore()
-    @State var selectedTab: Bool = true
+    @State var selectedTab: Tab = .home
     
     var body: some View {
         NavigationView {
             VStack {
-                if selectedTab {
+                if selectedTab == .home {
                     BirthCalculationView(birthCalculation: birthCalculation)
                         .configureView()
-//                        .environmentObject(birthCalculation)
-    //                    .transition(.asymmetric(insertion: .scale, removal: .opacity))
                 } else {
-                    Text("Teste")
-    //                    .transition(.asymmetric(insertion: .scale, removal: .opacity))
+                    Rectangle()
+                        .fill(.black)
                 }
             }
             .overlay(alignment: .bottom) {
                 TabBarView(selectedTab: $birthCalculation.selectedTabBar)
                     .padding(.bottom, 20)
                     .onChange(of: birthCalculation.selectedTabBar) { newValue in
-                        withAnimation(.easeInOut(duration: 0.2)) {
-                            selectedTab.toggle()
+                        withAnimation(.easeInOut) {
+                            selectedTab = newValue
                         }
                     }
+                    .frame(alignment: .bottom)
             }
             .ignoresSafeArea(.keyboard)
         }
