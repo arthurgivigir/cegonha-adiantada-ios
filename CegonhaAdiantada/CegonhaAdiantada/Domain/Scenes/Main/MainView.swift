@@ -12,28 +12,26 @@ struct MainView: View {
     @State var selectedTab: Tab = .home
     
     var body: some View {
-        NavigationView {
-            VStack {
-                if selectedTab == .home {
-                    BirthCalculationView(birthCalculation: birthCalculation)
-                        .configureView()
-                } else {
-                    Rectangle()
-                        .fill(.black)
-                }
+        VStack {
+            if selectedTab == .home {
+                BirthCalculationView(birthCalculation: birthCalculation)
+                    .configureView()
+            } else if selectedTab == .history {
+                HistoryDataView()
+                    .configureView()
             }
-            .overlay(alignment: .bottom) {
-                TabBarView(selectedTab: $birthCalculation.selectedTabBar)
-                    .padding(.bottom, 20)
-                    .onChange(of: birthCalculation.selectedTabBar) { newValue in
-                        withAnimation(.easeInOut) {
-                            selectedTab = newValue
-                        }
-                    }
-                    .frame(alignment: .bottom)
-            }
-            .ignoresSafeArea(.keyboard)
         }
+        .overlay(alignment: .bottom) {
+            TabBarView(selectedTab: $birthCalculation.selectedTabBar)
+                .padding(.bottom, 20)
+                .onChange(of: birthCalculation.selectedTabBar) { newValue in
+                    withAnimation(.easeInOut) {
+                        selectedTab = newValue
+                    }
+                }
+                .frame(alignment: .bottom)
+        }
+        .ignoresSafeArea(.keyboard)
     }
 }
 

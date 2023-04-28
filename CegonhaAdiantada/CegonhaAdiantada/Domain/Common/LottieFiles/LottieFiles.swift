@@ -10,4 +10,5 @@ import Foundation
 enum LottieFiles: String {
     case babyMom = "baby_mom"
     case storkBaby = "stork_baby"
+    case babyDaddy = "baby_daddy"
 }

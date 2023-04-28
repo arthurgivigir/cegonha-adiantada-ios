@@ -1,0 +1,24 @@
+//
+//  HistoryDataInteractor.swift
+//  CegonhaAdiantada
+//
+//  Created by Arthur Givigir on 28/04/23.
+//  
+//
+import Foundation
+
+protocol HistoryDataBusinessLogic {
+    func load(request: HistoryData.LoadHistoryData.Request)
+}
+
+final class HistoryDataInteractor {
+    typealias Request = HistoryData.LoadHistoryData.Request
+    typealias Response = HistoryData.LoadHistoryData.Response
+    var presenter: HistoryDataPresentationLogic?
+}
+
+extension HistoryDataInteractor: HistoryDataBusinessLogic {
+    func load(request: Request) {
+        // presenter?.present(response:  Response)
+    }
+}

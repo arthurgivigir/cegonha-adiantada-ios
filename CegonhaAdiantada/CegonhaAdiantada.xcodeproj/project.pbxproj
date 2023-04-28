@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5608FCA629FBFC8900A46B7A /* HistoryDataPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608FCA029FBFC8900A46B7A /* HistoryDataPresenter.swift */; };
+		5608FCA729FBFC8900A46B7A /* HistoryDataDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608FCA129FBFC8900A46B7A /* HistoryDataDataStore.swift */; };
+		5608FCA829FBFC8900A46B7A /* HistoryDataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608FCA229FBFC8900A46B7A /* HistoryDataInteractor.swift */; };
+		5608FCA929FBFC8900A46B7A /* HistoryDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608FCA329FBFC8900A46B7A /* HistoryDataView.swift */; };
+		5608FCAA29FBFC8900A46B7A /* HistoryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608FCA429FBFC8900A46B7A /* HistoryDataModel.swift */; };
+		5608FCAB29FBFC8900A46B7A /* HistoryDataConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608FCA529FBFC8900A46B7A /* HistoryDataConfigurator.swift */; };
+		5608FCAF29FC4E2A00A46B7A /* baby_daddy.json in Resources */ = {isa = PBXBuildFile; fileRef = 5608FCAE29FC4E2900A46B7A /* baby_daddy.json */; };
+		5608FCB229FC56A300A46B7A /* Calculus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608FCB129FC56A300A46B7A /* Calculus.swift */; };
 		561C56D129E9FEA200E84508 /* BirthCalculationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C56CB29E9FEA200E84508 /* BirthCalculationPresenter.swift */; };
 		561C56D229E9FEA200E84508 /* BirthCalculationDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C56CC29E9FEA200E84508 /* BirthCalculationDataStore.swift */; };
 		561C56D329E9FEA200E84508 /* BirthCalculationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C56CD29E9FEA200E84508 /* BirthCalculationInteractor.swift */; };
@@ -55,6 +63,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5608FCA029FBFC8900A46B7A /* HistoryDataPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDataPresenter.swift; sourceTree = "<group>"; };
+		5608FCA129FBFC8900A46B7A /* HistoryDataDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDataDataStore.swift; sourceTree = "<group>"; };
+		5608FCA229FBFC8900A46B7A /* HistoryDataInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDataInteractor.swift; sourceTree = "<group>"; };
+		5608FCA329FBFC8900A46B7A /* HistoryDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDataView.swift; sourceTree = "<group>"; };
+		5608FCA429FBFC8900A46B7A /* HistoryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDataModel.swift; sourceTree = "<group>"; };
+		5608FCA529FBFC8900A46B7A /* HistoryDataConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDataConfigurator.swift; sourceTree = "<group>"; };
+		5608FCAE29FC4E2900A46B7A /* baby_daddy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = baby_daddy.json; sourceTree = "<group>"; };
+		5608FCB129FC56A300A46B7A /* Calculus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculus.swift; sourceTree = "<group>"; };
 		561C56CB29E9FEA200E84508 /* BirthCalculationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthCalculationPresenter.swift; sourceTree = "<group>"; };
 		561C56CC29E9FEA200E84508 /* BirthCalculationDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthCalculationDataStore.swift; sourceTree = "<group>"; };
 		561C56CD29E9FEA200E84508 /* BirthCalculationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthCalculationInteractor.swift; sourceTree = "<group>"; };
@@ -115,6 +131,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5608FC9F29FBFC6300A46B7A /* History */ = {
+			isa = PBXGroup;
+			children = (
+				5608FCA029FBFC8900A46B7A /* HistoryDataPresenter.swift */,
+				5608FCA129FBFC8900A46B7A /* HistoryDataDataStore.swift */,
+				5608FCA229FBFC8900A46B7A /* HistoryDataInteractor.swift */,
+				5608FCA329FBFC8900A46B7A /* HistoryDataView.swift */,
+				5608FCA429FBFC8900A46B7A /* HistoryDataModel.swift */,
+				5608FCA529FBFC8900A46B7A /* HistoryDataConfigurator.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		5608FCB029FC566900A46B7A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5608FCB129FC56A300A46B7A /* Calculus.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		561C56BE29E9FE6F00E84508 /* BirthCalculation */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,8 +186,9 @@
 		566B53FF29E9EBBA005A787D /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				56BDD1FC29F72DF7004FF71F /* Main */,
 				561C56BE29E9FE6F00E84508 /* BirthCalculation */,
+				5608FC9F29FBFC6300A46B7A /* History */,
+				56BDD1FC29F72DF7004FF71F /* Main */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -158,6 +196,7 @@
 		56AA83E129EF4E200049ABB2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				5608FCB029FC566900A46B7A /* Models */,
 				56BDD1EB29F5CFE9004FF71F /* Components */,
 				562FC40329EF52CD00D5C6E9 /* Colors */,
 				56AA83E229EF4E280049ABB2 /* LottieFiles */,
@@ -168,6 +207,7 @@
 		56AA83E229EF4E280049ABB2 /* LottieFiles */ = {
 			isa = PBXGroup;
 			children = (
+				5608FCAE29FC4E2900A46B7A /* baby_daddy.json */,
 				56BDD1F829F5D71C004FF71F /* stork_baby.json */,
 				562FC40A29F0164200D5C6E9 /* baby_mom.json */,
 				56AA83E529EF4E4C0049ABB2 /* LottieFiles.swift */,
@@ -395,6 +435,7 @@
 				56FAED1229E763E600022043 /* Preview Assets.xcassets in Resources */,
 				56FAED0F29E763E600022043 /* Assets.xcassets in Resources */,
 				562FC40B29F0164200D5C6E9 /* baby_mom.json in Resources */,
+				5608FCAF29FC4E2A00A46B7A /* baby_daddy.json in Resources */,
 				56BDD1F929F5D71C004FF71F /* stork_baby.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,21 +462,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				56BDD1FB29F6AA3A004FF71F /* TabBarView.swift in Sources */,
+				5608FCA629FBFC8900A46B7A /* HistoryDataPresenter.swift in Sources */,
 				56BDD1FE29F72E13004FF71F /* MainView.swift in Sources */,
 				561C56D529E9FEA200E84508 /* BirthCalculationModel.swift in Sources */,
+				5608FCA729FBFC8900A46B7A /* HistoryDataDataStore.swift in Sources */,
 				562FC40529EF52D800D5C6E9 /* Colors.swift in Sources */,
 				56BDD1F129F5D071004FF71F /* LottieView.swift in Sources */,
+				5608FCAB29FBFC8900A46B7A /* HistoryDataConfigurator.swift in Sources */,
 				561C56D429E9FEA200E84508 /* BirthCalculationView.swift in Sources */,
+				5608FCAA29FBFC8900A46B7A /* HistoryDataModel.swift in Sources */,
 				56FAED1429E763E600022043 /* Persistence.swift in Sources */,
 				561C56D129E9FEA200E84508 /* BirthCalculationPresenter.swift in Sources */,
 				56BDD1EF29F5D021004FF71F /* PentagonShape.swift in Sources */,
+				5608FCA929FBFC8900A46B7A /* HistoryDataView.swift in Sources */,
 				56AA83E629EF4E4C0049ABB2 /* LottieFiles.swift in Sources */,
 				56FAED1729E763E600022043 /* CegonhaAdiantada.xcdatamodeld in Sources */,
 				561C56D229E9FEA200E84508 /* BirthCalculationDataStore.swift in Sources */,
 				561C56D629E9FEA200E84508 /* BirthCalculationConfigurator.swift in Sources */,
+				5608FCB229FC56A300A46B7A /* Calculus.swift in Sources */,
 				56FAED0D29E763E500022043 /* ContentPersistenceView.swift in Sources */,
 				561C56D329E9FEA200E84508 /* BirthCalculationInteractor.swift in Sources */,
 				56FAED0B29E763E500022043 /* CegonhaAdiantadaApp.swift in Sources */,
+				5608FCA829FBFC8900A46B7A /* HistoryDataInteractor.swift in Sources */,
 				56BDD1F729F5D335004FF71F /* ResultPopUpView.swift in Sources */,
 				56BDD1ED29F5CFE9004FF71F /* GradientTextFieldBackground.swift in Sources */,
 			);
