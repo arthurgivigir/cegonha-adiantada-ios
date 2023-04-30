@@ -57,6 +57,22 @@ struct BirthCalculationView: View {
         return formatter
     }
     
+    var paddingText: CGFloat {
+        if UIScreen.main.bounds.size.width <= 375 {
+            return 100
+        } else {
+            return .zero
+        }
+    }
+    
+    var paddingTop: CGFloat {
+        if UIScreen.main.bounds.size.width <= 375 {
+            return -180
+        } else {
+            return -280
+        }
+    }
+    
     @ObservedObject var birthCalculation: BirthCalculationDataStore
     @State private var calendarId: Int = 0
 
@@ -89,6 +105,7 @@ struct BirthCalculationView: View {
                     VStack(alignment: .leading) {
                         Text("Quantas semanas e dias o recém nascido tinha na data do seu nascimento?")
                             .foregroundColor(Colors.primary.color)
+                            .padding(.trailing, paddingText)
                             .font(
                                 .system(
                                     .title3,
@@ -162,7 +179,7 @@ struct BirthCalculationView: View {
                             fetch()
                         }
                     }
-                    .padding([.top], -180.0)
+                    .padding([.top], paddingTop)
                     .padding(.horizontal, .space06)
                 }
                 .navigationBarTitle(
