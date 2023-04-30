@@ -57,7 +57,7 @@ struct ResultPopUpView: View {
                     }
                     .offset(y: 40)
                 }
-                .padding([.bottom, .leading, .trailing], .space06)
+                .padding([.bottom, .leading, .trailing], .size12)
                 .padding(.top, 100)
                 .background(
                     GeometryReader { geometry in
@@ -71,7 +71,7 @@ struct ResultPopUpView: View {
                     }
                 )
             }
-            .padding(.all, .space06)
+            .padding(.all, .size12)
             .edgesIgnoringSafeArea([.top, .bottom])
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Colors.primary.color.opacity(0.5))
