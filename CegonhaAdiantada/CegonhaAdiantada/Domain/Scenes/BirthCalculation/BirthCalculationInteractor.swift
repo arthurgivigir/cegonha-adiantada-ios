@@ -20,28 +20,28 @@ final class BirthCalculationInteractor {
 
 extension BirthCalculationInteractor: BirthCalculationBusinessLogic {
     func calculateBabyBirthdays(request: Request) {
+        let calculus = request.calculus
         var totalDays: Int = .zero
         var totalWeeks: Int = .zero
-        let birthDays: Int = Int(request.days ?? .empty) ?? .zero
-        let birthWeeks: Int = Int(request.weeks ?? .empty) ?? .zero
-        let birthdayValue = request.date
+        let birthDays: Int = Int(calculus.days) ?? .zero
+        let birthWeeks: Int = Int(calculus.weeks) ?? .zero
+        let birthdayValue = calculus.date
 
-        if let birthdayValue {
-            let weeksUntilNow = Calendar.current.dateComponents([.weekOfYear, .day], from: birthdayValue, to: Date())
-            var days = (weeksUntilNow.day ?? .zero) + birthDays
-            var weeks = weeksUntilNow.weekOfYear ?? .zero
-            
-            let remainder = days % Date.week
-            if remainder >= 0, remainder != birthDays {
-                weeks += days / Date.week
-                days = remainder
-            }
-            
-            totalWeeks = birthWeeks + weeks
-            totalDays = totalWeeks * Date.week + days
-            
-            presenter?.present(response: Response(weeks: totalWeeks, days: days, totalDays: totalDays))
-            print("🚧 A criança tem \(totalWeeks) semanas e \(days) dia(s), um total de \(totalDays) dia(s).")
+        let weeksUntilNow = Calendar.current.dateComponents([.weekOfYear, .day], from: birthdayValue, to: Date())
+        var days = (weeksUntilNow.day ?? .zero) + birthDays
+        var weeks = weeksUntilNow.weekOfYear ?? .zero
+        
+        let remainder = days % Date.week
+        if remainder >= 0, remainder != birthDays {
+            weeks += days / Date.week
+            days = remainder
         }
+        
+        totalWeeks = birthWeeks + weeks
+        totalDays = totalWeeks * Date.week + days
+        
+        let result = Result(weeks: String(weeks), days: String(days), totalDays: String(totalDays))
+        presenter?.present(response: Response(result: result))
+        print("🚧 A criança tem \(totalWeeks) semanas e \(days) dia(s), um total de \(totalDays) dia(s).")
     }
 }

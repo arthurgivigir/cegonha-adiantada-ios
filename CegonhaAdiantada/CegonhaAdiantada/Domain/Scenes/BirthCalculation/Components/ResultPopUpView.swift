@@ -13,6 +13,9 @@ struct ResultPopUpView: View {
     @ObservedObject var birthCalculation: BirthCalculationDataStore
     
     let delegate: BirthCalculationDelegate
+    var result: Result {
+        birthCalculation.result
+    }
     
     init(
         delegate: BirthCalculationDelegate,
@@ -26,7 +29,7 @@ struct ResultPopUpView: View {
         VStack {
             ZStack {
                 VStack {
-                    Text("A criança tem \(birthCalculation.resultWeeks) semanas e \(birthCalculation.resultDays) dia(s), um total de \(birthCalculation.resultTotalDays) dia(s).")
+                    Text("A criança tem \(result.weeks) semanas e \(result.days) dia(s), um total de \(result.totalDays) dia(s).")
                         .foregroundColor(Colors.primaryFontColor.color)
                         .font(
                             .system(

@@ -10,21 +10,15 @@ import Foundation
 enum BirthCalculation {
     enum LoadBirthCalculation {
         struct Request {
-            var weeks: String?
-            var days: String?
-            var date: Date?
+            var calculus = Calculus()
         }
         
         struct Response {
-            var weeks: Int?
-            var days: Int?
-            var totalDays: Int?
+            var result = Result()
         }
         
         struct ViewModel {
-            var weeks: String = .empty
-            var days: String = .empty
-            var totalDays: String = .empty
+            var result = Result()
         }
     }
 }

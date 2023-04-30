@@ -8,12 +8,36 @@
 import Foundation
 
 struct Calculus {
-    var weeks: String?
-    var days: String?
-    var date: Date?
+    let weeks: String
+    let days: String
+    let date: Date
+    let result: Result
     
-    var totalDays: Int?
-    var resultWeeks: String = .zero
-    var resultDays: String = .zero
-    var resultTotalDays: String = .zero
+    init(
+        weeks: String = .zero,
+        days: String = .zero,
+        date: Date = .now,
+        result: Result = .init()
+    ) {
+        self.weeks = weeks
+        self.days = days
+        self.date = date
+        self.result = result
+    }
+}
+
+struct Result {
+    let weeks: String
+    let days: String
+    let totalDays: String
+    
+    init(
+        weeks: String = .zero,
+        days: String = .zero,
+        totalDays: String = .zero
+    ) {
+        self.weeks = weeks
+        self.days = days
+        self.totalDays = totalDays
+    }
 }

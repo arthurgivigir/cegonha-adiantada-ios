@@ -21,22 +21,19 @@ protocol BirthCalculationDisplayLogic {
 
 extension BirthCalculationView: BirthCalculationDisplayLogic {
     func display(viewModel: BirthCalculation.LoadBirthCalculation.ViewModel) {
-        birthCalculation.resultDays = viewModel.days
-        birthCalculation.resultWeeks = viewModel.weeks
-        birthCalculation.resultTotalDays = viewModel.totalDays
+        birthCalculation.result = viewModel.result
         birthCalculation.showPopUp = true
     }
     
     func fetch() {
-        hideKeyboard()
-        interactor?.calculateBabyBirthdays(
-            request:
-                Request(
-                    weeks: birthCalculation.weeks,
-                    days: birthCalculation.days,
-                    date: birthCalculation.date
-                )
+        let calculus = Calculus(
+            weeks: birthCalculation.weeks,
+            days: birthCalculation.days,
+            date: birthCalculation.date
         )
+        
+        hideKeyboard()
+        interactor?.calculateBabyBirthdays(request: Request(calculus: calculus))
     }
 }
 
@@ -46,7 +43,7 @@ extension BirthCalculationView: BirthCalculationDelegate {
     }
     
     func saveBirthCalculation() {
-        print("\(birthCalculation.resultTotalDays)")
+        print("\(birthCalculation.result.totalDays)")
     }
 }
 
