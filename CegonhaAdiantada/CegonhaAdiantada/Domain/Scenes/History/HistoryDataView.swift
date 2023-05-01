@@ -6,6 +6,7 @@
 //  
 //
 import SwiftUI
+import InfiniteLoop
 
 protocol HistoryDataDisplayLogic {
     func display(viewModel: HistoryData.LoadHistoryData.ViewModel)
@@ -19,42 +20,38 @@ extension HistoryDataView: HistoryDataDisplayLogic {
 struct HistoryDataView: View {
     var interactor: HistoryDataBusinessLogic?
     
+    @State var position: CGPoint = CGPoint(x: 0, y: 0)
     @ObservedObject var HistoryData = HistoryDataDataStore()
     
     init() {
-        //Use this if NavigationBarTitle is with Large Font
         UINavigationBar.appearance().largeTitleTextAttributes = [
             .foregroundColor: UIColor(Colors.secondary.color)
         ]
+        UINavigationBar.appearance().titleTextAttributes = [
+            .foregroundColor: UIColor(Colors.secondary.color)
+        ]
+        UINavigationBar.appearance().barTintColor = .clear
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        
         UICollectionView.appearance().backgroundColor = .clear
     }
     
     var body: some View {
         NavigationView {
-            ZStack {
-                GeometryReader { geometry in
-                    VStack {
-                        LottieView(filename: .babyDaddy)
-                            .frame(width: geometry.size.width/2.5, height: geometry.size.height/3)
-                            .offset(x: geometry.size.width - geometry.size.width/3, y: -(geometry.size.height/6))
-                        Spacer()
-                    }
+            ScrollWithBackgroundView(
+                fillColor: Colors.secondary.color.opacity(0.1),
+                lottieAnimation: .babyDaddy
+            ) {
+                Spacer()
+                    .frame(height: 100)
                 
-                    PentagonShape()
-                        .fill(Colors.secondary.color.opacity(0.1))
-                        .ignoresSafeArea()
-                    
-                    VStack {
-                        List {
-                            ForEach(0...100, id: \.self) { _ in
-                                CardView(weeks: "10", days: "30")
-                                    .listRowBackground(Color.clear)
-                            }
-                        }
-                        .padding(.top, 50)
-                        .listStyle(.plain)
-                    }
+                ForEach(0...100, id: \.self) { _ in
+                    CardView(calculus: Calculus(result: Result(weeks: "10", days: "2", totalDays: "12")))
+                        .listRowBackground(Color.clear)
+                        .padding(.bottom, .size02)
                 }
+                .padding(.horizontal, .size20)
             }
             .navigationBarTitle(
                 Text("Histórico")
@@ -65,44 +62,6 @@ struct HistoryDataView: View {
         }
     }
 }
-
-struct CardView: View {
-    let weeks: String
-    let days: String
-
-    var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                .fill(.white)
-
-            VStack {
-                Text(weeks)
-                    .font(.largeTitle)
-                    .foregroundColor(.black)
-
-                Text(days)
-                    .font(.title)
-                    .foregroundColor(.gray)
-            }
-            .padding(20)
-            .multilineTextAlignment(.center)
-        }
-    }
-}
-
-extension UICollectionReusableView {
-    override open var backgroundColor: UIColor? {
-        get { .clear }
-        set { }
-
-        // default separators use same color as background
-        // so to have it same but new (say red) it can be
-        // used as below, otherwise we just need custom separators
-        //
-        // set { super.backgroundColor = .red }
-    }
-}
-
 
 struct HistoryDataView_Previews: PreviewProvider {
     static var previews: some View {

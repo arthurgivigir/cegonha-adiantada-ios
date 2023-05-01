@@ -57,22 +57,6 @@ struct BirthCalculationView: View {
         return formatter
     }
     
-    var paddingText: CGFloat {
-        if UIScreen.main.bounds.size.width <= 375 {
-            return 100
-        } else {
-            return .zero
-        }
-    }
-    
-    var paddingTop: CGFloat {
-        if UIScreen.main.bounds.size.width <= 375 {
-            return -180
-        } else {
-            return -280
-        }
-    }
-    
     @ObservedObject var birthCalculation: BirthCalculationDataStore
     @State private var calendarId: Int = 0
 
@@ -83,122 +67,118 @@ struct BirthCalculationView: View {
         UINavigationBar.appearance().largeTitleTextAttributes = [
             .foregroundColor: UIColor(Colors.primary.color)
         ]
+        
+        UINavigationBar.appearance().titleTextAttributes = [
+            .foregroundColor: UIColor(Colors.primary.color)
+        ]
+        UINavigationBar.appearance().barTintColor = .clear
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        
+        UICollectionView.appearance().backgroundColor = .clear
     }
     
     var body: some View {
         NavigationView {
-            VStack {
-                Spacer()
-                    .frame(height: 100)
-                VStack(alignment: .leading) {
-                    Text("Quantas semanas e dias o recém nascido tinha na data do seu nascimento?")
-                        .foregroundColor(Colors.primary.color)
-                        .font(
-                            .system(
-                                .title3,
-                                design: .rounded
-                            )
-                            .weight(.medium)
-                        )
-                    
-                    HStack(alignment: .top) {
-                        VStack(alignment: .leading, spacing: Sizes.size06.cgFloat) {
-                            TextField("Semanas", text: $birthCalculation.weeks.maxlenght(3))
-                                .textFieldStyle(
-                                    GradientTextFieldBackground(
-                                        systemImageString: "calendar"
-                                    )
-                                )
-                            
-                            
-                            Text("Data de Nascimento")
-                                .foregroundColor(Colors.primary.color)
-                                .font(
-                                    .system(
-                                        .title3,
-                                        design: .rounded
-                                    )
-                                    .weight(.medium)
-                                )
-                                .padding(.top, 15)
-                        }
-                        
-                        VStack(alignment: .leading, spacing: Sizes.size06.cgFloat) {
-                            TextField("Dias", text: $birthCalculation.days.maxlenght(3))
-                                .textFieldStyle(
-                                    GradientTextFieldBackground(
-                                        systemImageString: "calendar"
-                                    )
-                                )
-                            
-                            DatePicker(
-                                "Data de Nascimento",
-                                selection: $birthCalculation.date,
-                                displayedComponents: [.date]
-                            )
-                            .id(calendarId)
-                            .onChange(of: birthCalculation.date) { _ in
-                                calendarId += 1
-                            }
-                            .buttonStyle(.bordered)
+            ScrollWithBackgroundView(fillColor: Colors.primary.color.opacity(0.1)) {
+                VStack {
+                    Spacer()
+                        .frame(height: 100)
+                    VStack(alignment: .leading) {
+                        Text("Quantas semanas e dias o recém nascido tinha na data do seu nascimento?")
+                            .foregroundColor(Colors.primary.color)
                             .font(
                                 .system(
-                                    .body,
+                                    .title3,
                                     design: .rounded
                                 )
-                                .weight(.light)
+                                .weight(.medium)
                             )
-                            .tint(Colors.primary.color)
-                            .foregroundColor(Colors.primary.color)
-                            .colorInvert()
-                            .labelsHidden()
-                            .colorMultiply(Colors.primary.color)
-                            .environment(\.locale, Locale.init(identifier: "pt-br"))
-                            .padding(.top, 10)
-                        }
-                    }
-                    
-                    LargeButton(
-                        title: "Calcular",
-                        backgroundColor: Color.white,
-                        foregroundColor: Colors.primary.color
-                    ) {
-                        fetch()
-                    }
-                }
-                .padding(.horizontal, .size20)
-                Spacer()
-            }
-            .navigationBarTitle(
-                Text("Calcular")
-            )
-            .popup(isPresented: $birthCalculation.showPopUp) {
-                ResultPopUpView(
-                    delegate: self,
-                    birthCalculation: birthCalculation
-                )
-            } customize: {
-                $0.closeOnTapOutside(true)
-                    .position(.top)
-                    .animation(.spring())
-                    .isOpaque(true)
-            }
-            .background {
-                PentagonShape()
-                    .fill(Colors.primary.color.opacity(0.1))
-                    .ignoresSafeArea()
-                    .overlay {
-                        GeometryReader { geometry in
-                            VStack {
-                                LottieView(filename: .babyMom)
-                                    .frame(width: geometry.size.width/2.5, height: geometry.size.height/3)
-                                    .offset(x: geometry.size.width - geometry.size.width/3, y: -(geometry.size.height/6))
-                                Spacer()
+                        
+                        HStack(alignment: .top) {
+                            VStack(alignment: .leading, spacing: Sizes.size06.cgFloat) {
+                                TextField("Semanas", text: $birthCalculation.weeks.maxlenght(3))
+                                    .textFieldStyle(
+                                        GradientTextFieldBackground(
+                                            systemImageString: "calendar"
+                                        )
+                                    )
+                                
+                                
+                                Text("Data de Nascimento")
+                                    .foregroundColor(Colors.primary.color)
+                                    .font(
+                                        .system(
+                                            .title3,
+                                            design: .rounded
+                                        )
+                                        .weight(.medium)
+                                    )
+                                    .padding(.top, 15)
+                            }
+                            
+                            VStack(alignment: .leading, spacing: Sizes.size06.cgFloat) {
+                                TextField("Dias", text: $birthCalculation.days.maxlenght(3))
+                                    .textFieldStyle(
+                                        GradientTextFieldBackground(
+                                            systemImageString: "calendar"
+                                        )
+                                    )
+                                
+                                DatePicker(
+                                    "Data de Nascimento",
+                                    selection: $birthCalculation.date,
+                                    displayedComponents: [.date]
+                                )
+                                .id(calendarId)
+                                .onChange(of: birthCalculation.date) { _ in
+                                    calendarId += 1
+                                }
+                                .buttonStyle(.bordered)
+                                .font(
+                                    .system(
+                                        .body,
+                                        design: .rounded
+                                    )
+                                    .weight(.light)
+                                )
+                                .tint(Colors.primary.color)
+                                .foregroundColor(Colors.primary.color)
+                                .colorInvert()
+                                .labelsHidden()
+                                .colorMultiply(Colors.primary.color)
+                                .environment(\.locale, Locale.init(identifier: "pt-br"))
+                                .padding(.top, 10)
                             }
                         }
+                        
+                        LargeButton(
+                            title: "Calcular",
+                            backgroundColor: Color.white,
+                            foregroundColor: Colors.primary.color
+                        ) {
+                            fetch()
+                        }
                     }
+                    .padding(.horizontal, .size20)
+                    Spacer()
+                }
+                .navigationBarTitle(
+                    Text("Calcular")
+                )
+                .popup(isPresented: $birthCalculation.showPopUp) {
+                    ResultPopUpView(
+                        delegate: self,
+                        birthCalculation: birthCalculation
+                    )
+                } customize: {
+                    $0.closeOnTapOutside(true)
+                        .position(.top)
+                        .animation(.spring())
+                        .isOpaque(true)
+                }
+                .edgesIgnoringSafeArea(.bottom)
             }
-            .edgesIgnoringSafeArea(.bottom)
             .onTapGesture {
                 self.hideKeyboard()
             }
