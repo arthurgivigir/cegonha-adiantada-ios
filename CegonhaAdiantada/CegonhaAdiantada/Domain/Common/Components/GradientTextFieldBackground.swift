@@ -18,8 +18,8 @@ public struct GradientTextFieldBackground: TextFieldStyle {
                 .stroke(
                     LinearGradient(
                         colors: [
-                            Colors.primary.color,
-                            Colors.primary.color
+                            Colors.primaryFontColor.color,
+                            Colors.primaryFontColor.color
                         ],
                         startPoint: .leading,
                         endPoint: .trailing
@@ -35,11 +35,11 @@ public struct GradientTextFieldBackground: TextFieldStyle {
                 Image(systemName: systemImageString)
                 // Reference the TextField here
                 configuration
-                    .foregroundColor(Colors.primary.color)
+                    .foregroundColor(Colors.primaryFontColor.color)
                     .keyboardType(.decimalPad)
             }
             .padding(.leading, 10)
-            .foregroundColor(Colors.primary.color)
+            .foregroundColor(Colors.primaryFontColor.color)
         }
     }
 }

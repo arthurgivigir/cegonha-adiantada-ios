@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 public extension EdgeInsets {
-    init(top: Spaces, bottom: Spaces, leading: Spaces, trailing: Spaces) {
+    init(top: Sizes, bottom: Sizes, leading: Sizes, trailing: Sizes) {
         self.init(
             top: CGFloat(top.rawValue),
             leading: CGFloat(leading.rawValue),

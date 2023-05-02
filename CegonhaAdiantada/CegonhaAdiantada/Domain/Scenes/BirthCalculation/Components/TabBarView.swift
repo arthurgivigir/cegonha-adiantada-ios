@@ -54,7 +54,7 @@ enum Tab: Int, Identifiable, CaseIterable, Comparable {
     var color: Color {
         switch self {
         case .home:
-            return Colors.primary.color
+            return Colors.primaryFontColor.color
         case .history:
             return Colors.tertiary.color
         case .saves:
