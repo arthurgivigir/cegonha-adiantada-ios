@@ -25,6 +25,22 @@
 		562FC40B29F0164200D5C6E9 /* baby_mom.json in Resources */ = {isa = PBXBuildFile; fileRef = 562FC40A29F0164200D5C6E9 /* baby_mom.json */; };
 		56605C9A29FEE24D003B1BC4 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56605C9929FEE24D003B1BC4 /* CardView.swift */; };
 		56605C9C2A0003CB003B1BC4 /* ScrollWithBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56605C9B2A0003CB003B1BC4 /* ScrollWithBackgroundView.swift */; };
+		56605C9E2A000C2E003B1BC4 /* empty_view_secondary.json in Resources */ = {isa = PBXBuildFile; fileRef = 56605C9D2A000C2E003B1BC4 /* empty_view_secondary.json */; };
+		56605CA02A000EFC003B1BC4 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56605C9F2A000EFC003B1BC4 /* EmptyListView.swift */; };
+		56605CA82A012DAD003B1BC4 /* SavesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56605CA22A012DAD003B1BC4 /* SavesPresenter.swift */; };
+		56605CA92A012DAD003B1BC4 /* SavesDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56605CA32A012DAD003B1BC4 /* SavesDataStore.swift */; };
+		56605CAA2A012DAD003B1BC4 /* SavesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56605CA42A012DAD003B1BC4 /* SavesInteractor.swift */; };
+		56605CAB2A012DAD003B1BC4 /* SavesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56605CA52A012DAD003B1BC4 /* SavesView.swift */; };
+		56605CAC2A012DAD003B1BC4 /* SavesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56605CA62A012DAD003B1BC4 /* SavesModel.swift */; };
+		56605CAD2A012DAD003B1BC4 /* SavesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56605CA72A012DAD003B1BC4 /* SavesConfigurator.swift */; };
+		56605CB52A012DED003B1BC4 /* ConfigurationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56605CAF2A012DED003B1BC4 /* ConfigurationPresenter.swift */; };
+		56605CB62A012DED003B1BC4 /* ConfigurationDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56605CB02A012DED003B1BC4 /* ConfigurationDataStore.swift */; };
+		56605CB72A012DED003B1BC4 /* ConfigurationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56605CB12A012DED003B1BC4 /* ConfigurationInteractor.swift */; };
+		56605CB82A012DED003B1BC4 /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56605CB22A012DED003B1BC4 /* ConfigurationView.swift */; };
+		56605CB92A012DED003B1BC4 /* ConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56605CB32A012DED003B1BC4 /* ConfigurationModel.swift */; };
+		56605CBA2A012DED003B1BC4 /* ConfigurationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56605CB42A012DED003B1BC4 /* ConfigurationConfigurator.swift */; };
+		56605CBC2A013217003B1BC4 /* empty_view_quaternary.json in Resources */ = {isa = PBXBuildFile; fileRef = 56605CBB2A013217003B1BC4 /* empty_view_quaternary.json */; };
+		56605CBE2A01764F003B1BC4 /* caring_mom.json in Resources */ = {isa = PBXBuildFile; fileRef = 56605CBD2A01764F003B1BC4 /* caring_mom.json */; };
 		56AA83E029EF4C540049ABB2 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 56AA83DF29EF4C540049ABB2 /* Lottie */; };
 		56AA83E629EF4E4C0049ABB2 /* LottieFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AA83E529EF4E4C0049ABB2 /* LottieFiles.swift */; };
 		56BDD1ED29F5CFE9004FF71F /* GradientTextFieldBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDD1EC29F5CFE9004FF71F /* GradientTextFieldBackground.swift */; };
@@ -83,6 +99,22 @@
 		562FC40A29F0164200D5C6E9 /* baby_mom.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = baby_mom.json; sourceTree = "<group>"; };
 		56605C9929FEE24D003B1BC4 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		56605C9B2A0003CB003B1BC4 /* ScrollWithBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollWithBackgroundView.swift; sourceTree = "<group>"; };
+		56605C9D2A000C2E003B1BC4 /* empty_view_secondary.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = empty_view_secondary.json; sourceTree = "<group>"; };
+		56605C9F2A000EFC003B1BC4 /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
+		56605CA22A012DAD003B1BC4 /* SavesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavesPresenter.swift; sourceTree = "<group>"; };
+		56605CA32A012DAD003B1BC4 /* SavesDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavesDataStore.swift; sourceTree = "<group>"; };
+		56605CA42A012DAD003B1BC4 /* SavesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavesInteractor.swift; sourceTree = "<group>"; };
+		56605CA52A012DAD003B1BC4 /* SavesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavesView.swift; sourceTree = "<group>"; };
+		56605CA62A012DAD003B1BC4 /* SavesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavesModel.swift; sourceTree = "<group>"; };
+		56605CA72A012DAD003B1BC4 /* SavesConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavesConfigurator.swift; sourceTree = "<group>"; };
+		56605CAF2A012DED003B1BC4 /* ConfigurationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationPresenter.swift; sourceTree = "<group>"; };
+		56605CB02A012DED003B1BC4 /* ConfigurationDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationDataStore.swift; sourceTree = "<group>"; };
+		56605CB12A012DED003B1BC4 /* ConfigurationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationInteractor.swift; sourceTree = "<group>"; };
+		56605CB22A012DED003B1BC4 /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
+		56605CB32A012DED003B1BC4 /* ConfigurationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationModel.swift; sourceTree = "<group>"; };
+		56605CB42A012DED003B1BC4 /* ConfigurationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationConfigurator.swift; sourceTree = "<group>"; };
+		56605CBB2A013217003B1BC4 /* empty_view_quaternary.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = empty_view_quaternary.json; sourceTree = "<group>"; };
+		56605CBD2A01764F003B1BC4 /* caring_mom.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = caring_mom.json; sourceTree = "<group>"; };
 		56AA83E529EF4E4C0049ABB2 /* LottieFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieFiles.swift; sourceTree = "<group>"; };
 		56BDD1EC29F5CFE9004FF71F /* GradientTextFieldBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientTextFieldBackground.swift; sourceTree = "<group>"; };
 		56BDD1EE29F5D021004FF71F /* PentagonShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PentagonShape.swift; sourceTree = "<group>"; };
@@ -187,6 +219,32 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		56605CA12A012D94003B1BC4 /* Saves */ = {
+			isa = PBXGroup;
+			children = (
+				56605CA22A012DAD003B1BC4 /* SavesPresenter.swift */,
+				56605CA32A012DAD003B1BC4 /* SavesDataStore.swift */,
+				56605CA42A012DAD003B1BC4 /* SavesInteractor.swift */,
+				56605CA52A012DAD003B1BC4 /* SavesView.swift */,
+				56605CA62A012DAD003B1BC4 /* SavesModel.swift */,
+				56605CA72A012DAD003B1BC4 /* SavesConfigurator.swift */,
+			);
+			path = Saves;
+			sourceTree = "<group>";
+		};
+		56605CAE2A012DDD003B1BC4 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				56605CAF2A012DED003B1BC4 /* ConfigurationPresenter.swift */,
+				56605CB02A012DED003B1BC4 /* ConfigurationDataStore.swift */,
+				56605CB12A012DED003B1BC4 /* ConfigurationInteractor.swift */,
+				56605CB22A012DED003B1BC4 /* ConfigurationView.swift */,
+				56605CB32A012DED003B1BC4 /* ConfigurationModel.swift */,
+				56605CB42A012DED003B1BC4 /* ConfigurationConfigurator.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		566B53FE29E9EBB3005A787D /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +257,8 @@
 		566B53FF29E9EBBA005A787D /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				56605CAE2A012DDD003B1BC4 /* Configuration */,
+				56605CA12A012D94003B1BC4 /* Saves */,
 				561C56BE29E9FE6F00E84508 /* BirthCalculation */,
 				5608FC9F29FBFC6300A46B7A /* History */,
 				56BDD1FC29F72DF7004FF71F /* Main */,
@@ -220,6 +280,9 @@
 		56AA83E229EF4E280049ABB2 /* LottieFiles */ = {
 			isa = PBXGroup;
 			children = (
+				56605CBD2A01764F003B1BC4 /* caring_mom.json */,
+				56605CBB2A013217003B1BC4 /* empty_view_quaternary.json */,
+				56605C9D2A000C2E003B1BC4 /* empty_view_secondary.json */,
 				5608FCAE29FC4E2900A46B7A /* baby_daddy.json */,
 				56BDD1F829F5D71C004FF71F /* stork_baby.json */,
 				562FC40A29F0164200D5C6E9 /* baby_mom.json */,
@@ -235,6 +298,7 @@
 				56BDD1EE29F5D021004FF71F /* PentagonShape.swift */,
 				56BDD1F029F5D071004FF71F /* LottieView.swift */,
 				56605C9B2A0003CB003B1BC4 /* ScrollWithBackgroundView.swift */,
+				56605C9F2A000EFC003B1BC4 /* EmptyListView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -446,11 +510,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56605CBC2A013217003B1BC4 /* empty_view_quaternary.json in Resources */,
 				56FAED1229E763E600022043 /* Preview Assets.xcassets in Resources */,
 				56FAED0F29E763E600022043 /* Assets.xcassets in Resources */,
 				562FC40B29F0164200D5C6E9 /* baby_mom.json in Resources */,
+				56605CBE2A01764F003B1BC4 /* caring_mom.json in Resources */,
 				5608FCAF29FC4E2A00A46B7A /* baby_daddy.json in Resources */,
 				56BDD1F929F5D71C004FF71F /* stork_baby.json in Resources */,
+				56605C9E2A000C2E003B1BC4 /* empty_view_secondary.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,24 +549,37 @@
 				5608FCA729FBFC8900A46B7A /* HistoryDataDataStore.swift in Sources */,
 				562FC40529EF52D800D5C6E9 /* Colors.swift in Sources */,
 				56BDD1F129F5D071004FF71F /* LottieView.swift in Sources */,
+				56605CB72A012DED003B1BC4 /* ConfigurationInteractor.swift in Sources */,
+				56605CAB2A012DAD003B1BC4 /* SavesView.swift in Sources */,
 				5608FCAB29FBFC8900A46B7A /* HistoryDataConfigurator.swift in Sources */,
+				56605CAD2A012DAD003B1BC4 /* SavesConfigurator.swift in Sources */,
 				561C56D429E9FEA200E84508 /* BirthCalculationView.swift in Sources */,
 				5608FCAA29FBFC8900A46B7A /* HistoryDataModel.swift in Sources */,
 				56FAED1429E763E600022043 /* Persistence.swift in Sources */,
+				56605CAC2A012DAD003B1BC4 /* SavesModel.swift in Sources */,
+				56605CAA2A012DAD003B1BC4 /* SavesInteractor.swift in Sources */,
 				561C56D129E9FEA200E84508 /* BirthCalculationPresenter.swift in Sources */,
 				56BDD1EF29F5D021004FF71F /* PentagonShape.swift in Sources */,
 				5608FCA929FBFC8900A46B7A /* HistoryDataView.swift in Sources */,
 				56AA83E629EF4E4C0049ABB2 /* LottieFiles.swift in Sources */,
 				56FAED1729E763E600022043 /* CegonhaAdiantada.xcdatamodeld in Sources */,
+				56605CA02A000EFC003B1BC4 /* EmptyListView.swift in Sources */,
 				561C56D229E9FEA200E84508 /* BirthCalculationDataStore.swift in Sources */,
+				56605CA92A012DAD003B1BC4 /* SavesDataStore.swift in Sources */,
 				56605C9C2A0003CB003B1BC4 /* ScrollWithBackgroundView.swift in Sources */,
 				561C56D629E9FEA200E84508 /* BirthCalculationConfigurator.swift in Sources */,
+				56605CA82A012DAD003B1BC4 /* SavesPresenter.swift in Sources */,
+				56605CB52A012DED003B1BC4 /* ConfigurationPresenter.swift in Sources */,
 				5608FCB229FC56A300A46B7A /* Calculus.swift in Sources */,
+				56605CBA2A012DED003B1BC4 /* ConfigurationConfigurator.swift in Sources */,
+				56605CB92A012DED003B1BC4 /* ConfigurationModel.swift in Sources */,
 				56FAED0D29E763E500022043 /* ContentPersistenceView.swift in Sources */,
 				56605C9A29FEE24D003B1BC4 /* CardView.swift in Sources */,
+				56605CB62A012DED003B1BC4 /* ConfigurationDataStore.swift in Sources */,
 				561C56D329E9FEA200E84508 /* BirthCalculationInteractor.swift in Sources */,
 				56FAED0B29E763E500022043 /* CegonhaAdiantadaApp.swift in Sources */,
 				5608FCA829FBFC8900A46B7A /* HistoryDataInteractor.swift in Sources */,
+				56605CB82A012DED003B1BC4 /* ConfigurationView.swift in Sources */,
 				56BDD1F729F5D335004FF71F /* ResultPopUpView.swift in Sources */,
 				56BDD1ED29F5CFE9004FF71F /* GradientTextFieldBackground.swift in Sources */,
 			);

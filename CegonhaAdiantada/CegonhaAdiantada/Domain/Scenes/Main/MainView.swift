@@ -19,6 +19,12 @@ struct MainView: View {
             } else if selectedTab == .history {
                 HistoryDataView()
                     .configureView()
+            } else if selectedTab == .saves {
+                SavesView()
+                    .configureView()
+            } else {
+                ConfigurationView()
+                    .configureView()
             }
         }
         .overlay(alignment: .bottom) {

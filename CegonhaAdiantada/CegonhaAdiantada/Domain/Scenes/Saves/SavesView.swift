@@ -1,33 +1,33 @@
 //
-//  HistoryDataView.swift
+//  SavesView.swift
 //  CegonhaAdiantada
 //
-//  Created by Arthur Givigir on 28/04/23.
+//  Created by Arthur Givigir on 02/05/23.
 //  
 //
 import SwiftUI
-import InfiniteLoop
 
-protocol HistoryDataDisplayLogic {
-    func display(viewModel: HistoryData.LoadHistoryData.ViewModel)
+protocol SavesDisplayLogic {
+    func display(viewModel: Saves.LoadSaves.ViewModel)
 }
 
-extension HistoryDataView: HistoryDataDisplayLogic {
-    func display(viewModel: HistoryData.LoadHistoryData.ViewModel) {}
+extension SavesView: SavesDisplayLogic {
+    func display(viewModel: Saves.LoadSaves.ViewModel) {}
     func fetch() {}
 }
 
-struct HistoryDataView: View {
-    var interactor: HistoryDataBusinessLogic?
+struct SavesView: View {
+    var interactor: SavesBusinessLogic?
     
-    @ObservedObject var historyData = HistoryDataDataStore()
+    @ObservedObject var saves = SavesDataStore()
+    
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [
-            .foregroundColor: UIColor(Colors.secondary.color)
+            .foregroundColor: UIColor(Colors.quaternary.color)
         ]
         UINavigationBar.appearance().titleTextAttributes = [
-            .foregroundColor: UIColor(Colors.secondary.color)
+            .foregroundColor: UIColor(Colors.quaternary.color)
         ]
         UINavigationBar.appearance().barTintColor = .clear
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
@@ -39,8 +39,8 @@ struct HistoryDataView: View {
     var body: some View {
         NavigationView {
             ScrollWithBackgroundView(
-                fillColor: Colors.secondary.color.opacity(0.1),
-                lottieAnimation: .babyDaddy
+                fillColor: Colors.quaternary.color.opacity(0.1),
+                lottieAnimation: .caringMom
             ) {
                 Spacer()
                     .frame(height: 100)
@@ -48,8 +48,8 @@ struct HistoryDataView: View {
                 EmptyListView(
                     titleText: .historyTitle,
                     emptyListText: .historyDescription,
-                    textColor: .secondary,
-                    lottieAnimation: .emptyViewSecondary
+                    textColor: .quaternary,
+                    lottieAnimation: .emptyViewQuaternary
                 )
                 
 //                ForEach(0...100, id: \.self) { _ in
@@ -69,8 +69,8 @@ struct HistoryDataView: View {
     }
 }
 
-struct HistoryDataView_Previews: PreviewProvider {
+struct SavesView_Previews: PreviewProvider {
     static var previews: some View {
-        return HistoryDataView()
+        return SavesView()
     }
 }
