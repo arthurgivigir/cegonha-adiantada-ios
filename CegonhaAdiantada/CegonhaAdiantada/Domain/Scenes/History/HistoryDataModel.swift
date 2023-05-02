@@ -11,8 +11,12 @@ enum HistoryData {
     enum LoadHistoryData {
         struct Request {}
         
-        struct Response {}
+        struct Response {
+            var calculus: [Calculus]
+        }
         
-        struct ViewModel {}
+        struct ViewModel {
+            var calculus: [Calculus]
+        }
     }
 }

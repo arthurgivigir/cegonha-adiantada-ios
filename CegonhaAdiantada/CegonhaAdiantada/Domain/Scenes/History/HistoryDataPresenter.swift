@@ -19,6 +19,6 @@ final class HistoryDataPresenter {
 
 extension HistoryDataPresenter: HistoryDataPresentationLogic {
     func present(response: Response) {
-    //    view?.display(viewModel: viewModel)
+        view?.display(viewModel: ViewModel(calculus: response.calculus))
     }
 }

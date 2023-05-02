@@ -29,7 +29,7 @@ extension BirthCalculationView: BirthCalculationDisplayLogic {
         let calculus = Calculus(
             weeks: birthCalculation.weeks,
             days: birthCalculation.days,
-            date: birthCalculation.date
+            birthDate: birthCalculation.date
         )
         
         hideKeyboard()
@@ -65,11 +65,11 @@ struct BirthCalculationView: View {
         
         //Use this if NavigationBarTitle is with Large Font
         UINavigationBar.appearance().largeTitleTextAttributes = [
-            .foregroundColor: UIColor(Colors.primary.color)
+            .foregroundColor: UIColor(Colors.primaryFontColor.color)
         ]
         
         UINavigationBar.appearance().titleTextAttributes = [
-            .foregroundColor: UIColor(Colors.primary.color)
+            .foregroundColor: UIColor(Colors.primaryFontColor.color)
         ]
         UINavigationBar.appearance().barTintColor = .clear
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
@@ -86,7 +86,7 @@ struct BirthCalculationView: View {
                         .frame(height: 100)
                     VStack(alignment: .leading) {
                         Text("Quantas semanas e dias o recém nascido tinha na data do seu nascimento?")
-                            .foregroundColor(Colors.primary.color)
+                            .foregroundColor(Colors.primaryFontColor.color)
                             .font(
                                 .system(
                                     .title3,
@@ -106,7 +106,7 @@ struct BirthCalculationView: View {
                                 
                                 
                                 Text("Data de Nascimento")
-                                    .foregroundColor(Colors.primary.color)
+                                    .foregroundColor(Colors.primaryFontColor.color)
                                     .font(
                                         .system(
                                             .title3,
@@ -142,11 +142,11 @@ struct BirthCalculationView: View {
                                     )
                                     .weight(.light)
                                 )
-                                .tint(Colors.primary.color)
-                                .foregroundColor(Colors.primary.color)
+                                .tint(Colors.primaryFontColor.color)
+                                .foregroundColor(Colors.primaryFontColor.color)
                                 .colorInvert()
                                 .labelsHidden()
-                                .colorMultiply(Colors.primary.color)
+                                .colorMultiply(Colors.primaryFontColor.color)
                                 .environment(\.locale, Locale.init(identifier: "pt-br"))
                                 .padding(.top, 10)
                             }
@@ -155,7 +155,7 @@ struct BirthCalculationView: View {
                         LargeButton(
                             title: "Calcular",
                             backgroundColor: Color.white,
-                            foregroundColor: Colors.primary.color
+                            foregroundColor: Colors.primaryFontColor.color
                         ) {
                             fetch()
                         }

@@ -8,5 +8,5 @@
 import Foundation
 
 final class HistoryDataDataStore: ObservableObject {
-    // @Published var value: [String] = []
+     @Published var history: [Calculus] = []
 }

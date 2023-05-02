@@ -13,8 +13,16 @@ protocol HistoryDataDisplayLogic {
 }
 
 extension HistoryDataView: HistoryDataDisplayLogic {
-    func display(viewModel: HistoryData.LoadHistoryData.ViewModel) {}
-    func fetch() {}
+    typealias Request = HistoryData.LoadHistoryData.Request
+    typealias ViewModel = HistoryData.LoadHistoryData.ViewModel
+    
+    func display(viewModel: ViewModel) {
+        historyData.history = viewModel.calculus
+    }
+    
+    func fetch() {
+        interactor?.load(request: Request())
+    }
 }
 
 struct HistoryDataView: View {
@@ -45,19 +53,21 @@ struct HistoryDataView: View {
                 Spacer()
                     .frame(height: 100)
                 
-                EmptyListView(
-                    titleText: .historyTitle,
-                    emptyListText: .historyDescription,
-                    textColor: .secondary,
-                    lottieAnimation: .emptyViewSecondary
-                )
-                
-//                ForEach(0...100, id: \.self) { _ in
-//                    CardView(calculus: Calculus(result: Result(weeks: "10", days: "2", totalDays: "12")))
-//                        .listRowBackground(Color.clear)
-//                        .padding(.bottom, .size02)
-//                }
-//                .padding(.horizontal, .size20)
+                if !historyData.history.isEmpty {
+                    ForEach(historyData.history, id: \.self) { calculus in
+                        CardView(calculus: calculus)
+                            .listRowBackground(Color.clear)
+                            .padding(.bottom, .size02)
+                    }
+                    .padding(.horizontal, .size20)
+                } else {
+                    EmptyListView(
+                        titleText: .historyTitle,
+                        emptyListText: .historyDescription,
+                        textColor: .secondary,
+                        lottieAnimation: .emptyViewSecondary
+                    )
+                }
             }
             .navigationBarTitle(
                 Text("Histórico")
