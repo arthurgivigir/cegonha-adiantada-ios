@@ -55,9 +55,12 @@ struct HistoryDataView: View {
                 
                 if !historyData.history.isEmpty {
                     ForEach(historyData.history, id: \.self) { calculus in
-                        CardView(calculus: calculus)
-                            .listRowBackground(Color.clear)
-                            .padding(.bottom, .size02)
+                        CardView(
+                            calculus: calculus,
+                            fontColor: .secondary
+                        )
+                        .listRowBackground(Color.clear)
+                        .padding(.bottom, .size02)
                     }
                     .padding(.horizontal, .size20)
                 } else {
@@ -68,6 +71,9 @@ struct HistoryDataView: View {
                         lottieAnimation: .emptyViewSecondary
                     )
                 }
+                
+                Spacer()
+                    .frame(height: 100)
             }
             .navigationBarTitle(
                 Text("Histórico")
