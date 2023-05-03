@@ -15,7 +15,7 @@ struct Calculus: Codable, Hashable {
     let days: String
     let birthDate: Date
     let result: Result
-    let baby: Baby
+    let baby: Baby?
     
     init(
         date: Date = .now,
@@ -23,7 +23,7 @@ struct Calculus: Codable, Hashable {
         days: String = .zero,
         birthDate: Date = .now,
         result: Result = .init(),
-        baby: Baby = .init()
+        baby: Baby? = nil
     ) {
         self.date = date
         self.weeks = weeks

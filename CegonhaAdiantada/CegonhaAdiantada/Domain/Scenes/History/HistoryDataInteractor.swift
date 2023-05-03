@@ -21,7 +21,7 @@ final class HistoryDataInteractor {
 extension HistoryDataInteractor: HistoryDataBusinessLogic {
     func load(request: Request) {
         let results = defaults.object(forKey: "history") as? [Data] ?? []
-        let calculus = results.toCalculus()
+        let calculus = results.toCalculus().sorted { $0.date > $1.date }
         presenter?.present(response:  Response(calculus: calculus))
     }
 }
