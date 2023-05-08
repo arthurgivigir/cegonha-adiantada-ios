@@ -10,6 +10,8 @@ import SwiftUI
 enum EmptyListTexts: String {
     case historyTitle = "Sem histórico, ainda..."
     case historyDescription = "Parece que você não fez nenhum cálculo"
+    case saveTitle = "Na salvo, ainda..."
+    case saveDescription = "Parece que você ainda não salvou nenhum cálculo"
 }
 
 struct EmptyListView: View {

@@ -8,5 +8,5 @@
 import Foundation
 
 final class SavesDataStore: ObservableObject {
-    // @Published var value: [String] = []
+     @Published var saves: [Calculus] = []
 }

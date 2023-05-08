@@ -19,7 +19,7 @@ extension SavesView: SavesDisplayLogic {
 struct SavesView: View {
     var interactor: SavesBusinessLogic?
     
-    @ObservedObject var saves = SavesDataStore()
+    @ObservedObject var savesData = SavesDataStore()
     
     
     init() {
@@ -45,19 +45,27 @@ struct SavesView: View {
                 Spacer()
                     .frame(height: 100)
                 
-                EmptyListView(
-                    titleText: .historyTitle,
-                    emptyListText: .historyDescription,
-                    textColor: .quaternary,
-                    lottieAnimation: .emptyViewQuaternary
-                )
+                if !savesData.saves.isEmpty {
+                    ForEach(savesData.saves, id: \.self) { calculus in
+                        CardView(
+                            calculus: calculus,
+                            fontColor: .quaternary
+                        )
+                        .listRowBackground(Color.clear)
+                        .padding(.bottom, .size02)
+                    }
+                    .padding(.horizontal, .size20)
+                } else {
+                    EmptyListView(
+                        titleText: .saveTitle,
+                        emptyListText: .saveDescription,
+                        textColor: .quaternary,
+                        lottieAnimation: .emptyViewQuaternary
+                    )
+                }
                 
-//                ForEach(0...100, id: \.self) { _ in
-//                    CardView(calculus: Calculus(result: Result(weeks: "10", days: "2", totalDays: "12")))
-//                        .listRowBackground(Color.clear)
-//                        .padding(.bottom, .size02)
-//                }
-//                .padding(.horizontal, .size20)
+                Spacer()
+                    .frame(height: 100)
             }
             .navigationBarTitle(
                 Text("Histórico")
