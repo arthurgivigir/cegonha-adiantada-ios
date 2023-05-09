@@ -71,6 +71,13 @@ extension Array where Element == Data {
     }
 }
 
+extension String {
+    var toCalculus: Calculus? {
+        let data = self.data(using: .utf8, allowLossyConversion: false)
+        return data?.toCalculus()
+    }
+}
+
 extension Data {
     func toCalculus() -> Calculus? {
         var calculus: Calculus?

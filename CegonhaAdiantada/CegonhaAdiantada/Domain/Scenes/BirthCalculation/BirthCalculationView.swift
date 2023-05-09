@@ -22,6 +22,7 @@ protocol BirthCalculationDisplayLogic {
 extension BirthCalculationView: BirthCalculationDisplayLogic {
     func display(viewModel: BirthCalculation.LoadBirthCalculation.ViewModel) {
         birthCalculation.result = viewModel.result
+        birthCalculation.calculusToBeSaved = viewModel.calculusToBeSaved
         birthCalculation.showPopUp = true
     }
     
@@ -43,7 +44,10 @@ extension BirthCalculationView: BirthCalculationDelegate {
     }
     
     func saveBirthCalculation() {
-        print("\(birthCalculation.result.totalDays)")
+        fetch()
+        savesData.showPopUp = true
+        savesData.savedCalculus = birthCalculation.calculusToBeSaved
+        birthCalculation.selectedTabBar = .saves
     }
 }
 
@@ -57,11 +61,17 @@ struct BirthCalculationView: View {
         return formatter
     }
     
+    @ObservedObject var savesData: SavesDataStore
     @ObservedObject var birthCalculation: BirthCalculationDataStore
+    
     @State private var calendarId: Int = 0
 
-    init(birthCalculation: BirthCalculationDataStore) {
+    init(
+        birthCalculation: BirthCalculationDataStore,
+        savesData: SavesDataStore
+    ) {
         self.birthCalculation = birthCalculation
+        self.savesData = savesData
         
         //Use this if NavigationBarTitle is with Large Font
         UINavigationBar.appearance().largeTitleTextAttributes = [
@@ -100,7 +110,8 @@ struct BirthCalculationView: View {
                                 TextField("Semanas", text: $birthCalculation.weeks.maxlenght(3))
                                     .textFieldStyle(
                                         GradientTextFieldBackground(
-                                            systemImageString: "calendar"
+                                            systemImageString: "calendar",
+                                            fontColor: .primaryFontColor
                                         )
                                     )
                                 
@@ -121,7 +132,8 @@ struct BirthCalculationView: View {
                                 TextField("Dias", text: $birthCalculation.days.maxlenght(3))
                                     .textFieldStyle(
                                         GradientTextFieldBackground(
-                                            systemImageString: "calendar"
+                                            systemImageString: "calendar",
+                                            fontColor: .primaryFontColor
                                         )
                                     )
                                 
@@ -182,15 +194,18 @@ struct BirthCalculationView: View {
             .onTapGesture {
                 self.hideKeyboard()
             }
+            .onAppear {
+                birthCalculation.calculusToBeSaved = nil
+            }
         }
     }
 }
 
 struct BirthCalculationView_Previews: PreviewProvider {
     static var previews: some View {
-        BirthCalculationView(birthCalculation: BirthCalculationDataStore())
+        BirthCalculationView(birthCalculation: BirthCalculationDataStore(), savesData: SavesDataStore())
         
-        BirthCalculationView(birthCalculation: BirthCalculationDataStore())
+        BirthCalculationView(birthCalculation: BirthCalculationDataStore(), savesData: SavesDataStore())
             .previewDevice(PreviewDevice(rawValue: "iPhone 6s"))
             .previewDisplayName("iPhone 6s")
     }

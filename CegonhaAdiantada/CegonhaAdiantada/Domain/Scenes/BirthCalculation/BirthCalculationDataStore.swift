@@ -13,6 +13,8 @@ final class BirthCalculationDataStore: ObservableObject {
     @Published var date: Date = .now
     
     @Published var showPopUp: Bool = false
-    @Published var selectedTabBar: Tab = .home
     @Published var result: Result = .init()
+    
+    @Published var selectedTabBar: Tab = .home
+    @Published var calculusToBeSaved: Calculus? = nil
 }

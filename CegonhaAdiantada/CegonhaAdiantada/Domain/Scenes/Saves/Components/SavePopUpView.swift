@@ -1,55 +1,49 @@
 //
-//  ResultPopUpView.swift
+//  SavePopUpView.swift
 //  CegonhaAdiantada
 //
-//  Created by Arthur Givigir on 23/04/23.
+//  Created by Arthur Givigir on 08/05/23.
 //
 
 import SwiftUI
 import InfiniteLoop
 
-struct ResultPopUpView: View {
-    @ObservedObject var birthCalculation: BirthCalculationDataStore
-    
-    let delegate: BirthCalculationDelegate
-    var result: Result {
-        birthCalculation.result
-    }
+struct SavePopUpView: View {
+    let delegate: SavesDelegate
+    @ObservedObject var savesData: SavesDataStore
     
     init(
-        delegate: BirthCalculationDelegate,
-        birthCalculation: BirthCalculationDataStore
+        delegate: SavesDelegate,
+        savesData: SavesDataStore
     ) {
         self.delegate = delegate
-        self.birthCalculation = birthCalculation
+        self.savesData = savesData
     }
     
     var body: some View {
         VStack {
             ZStack {
                 VStack {
-                    Text("A criança tem \(result.weeks) semanas e \(result.days) dia(s), um total de \(result.totalDays) dia(s).")
-                        .foregroundColor(Colors.primaryFontColor.color)
-                        .font(
-                            .system(
-                                .title3,
-                                design: .rounded
+                    TextField("Nome ou Id do Paciente", text: $savesData.babysId.maxlenght(20))
+                        .textFieldStyle(
+                            GradientTextFieldBackground(
+                                systemImageString: "person.circle.fill",
+                                fontColor: .quaternary
                             )
-                            .weight(.medium)
-                    )
+                        )
                     
                     HStack(spacing: 0.0) {
                         LargeButton(
                             title: "Fechar",
                             backgroundColor: Color.white,
-                            foregroundColor: Colors.primaryFontColor.color
+                            foregroundColor: Colors.quaternary.color
                         ) {
                             delegate.closePopUp()
                         }
-
+                        
                         LargeButton(
                             title: "Salvar",
-                            backgroundColor: Colors.primaryFontColor.color
+                            backgroundColor: Colors.quaternary.color
                         ) {
                             delegate.saveBirthCalculation()
                         }
@@ -73,13 +67,13 @@ struct ResultPopUpView: View {
             .padding(.all, .size12)
             .edgesIgnoringSafeArea([.top, .bottom])
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Colors.primary.color.opacity(0.5))
+            .background(Colors.quaternary.color.opacity(0.5))
         }
     }
 }
 
-struct ResultPopUpView_Previews: PreviewProvider {
-    struct spy: BirthCalculationDelegate {
+struct SavePopUpView_Previews: PreviewProvider {
+    struct spy: SavesDelegate {
         func closePopUp() {
             print("closePopUp")
         }
@@ -90,9 +84,6 @@ struct ResultPopUpView_Previews: PreviewProvider {
     }
     
     static var previews: some View {
-        ResultPopUpView(
-            delegate: spy(),
-            birthCalculation: BirthCalculationDataStore()
-        )
+        SavePopUpView(delegate: spy(), savesData: SavesDataStore())
     }
 }
