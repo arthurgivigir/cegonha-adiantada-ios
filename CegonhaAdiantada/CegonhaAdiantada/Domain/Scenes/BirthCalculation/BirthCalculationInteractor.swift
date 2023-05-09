@@ -42,17 +42,16 @@ extension BirthCalculationInteractor: BirthCalculationBusinessLogic {
         totalDays = totalWeeks * Date.week + days
         
         let result = Result(weeks: String(totalWeeks), days: String(days), totalDays: String(totalDays))
-        
-        saveToUserDefaults(
-            calculus: Calculus(
-                weeks: calculus.weeks,
-                days: calculus.days,
-                birthDate: calculus.birthDate,
-                result: result
-            )
+        let calculusToBeSaved = Calculus(
+            weeks: calculus.weeks,
+            days: calculus.days,
+            birthDate: calculus.birthDate,
+            result: result
         )
         
-        presenter?.present(response: Response(result: result))
+        saveToUserDefaults(calculus: calculusToBeSaved)
+        
+        presenter?.present(response: Response(result: result, calculusToBeSaved: calculusToBeSaved))
         print("🚧 A criança tem \(totalWeeks) semanas e \(days) dia(s), um total de \(totalDays) dia(s).")
     }
 }

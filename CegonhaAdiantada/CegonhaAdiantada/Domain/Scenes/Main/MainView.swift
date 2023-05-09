@@ -8,19 +8,23 @@
 import SwiftUI
 
 struct MainView: View {
+    @ObservedObject var savesData = SavesDataStore()
     @ObservedObject var birthCalculation = BirthCalculationDataStore()
     @State var selectedTab: Tab = .home
     
     var body: some View {
         VStack {
             if selectedTab == .home {
-                BirthCalculationView(birthCalculation: birthCalculation)
-                    .configureView()
+                BirthCalculationView(
+                    birthCalculation: birthCalculation,
+                    savesData: savesData
+                )
+                .configureView()
             } else if selectedTab == .history {
                 HistoryDataView()
                     .configureView()
             } else if selectedTab == .saves {
-                SavesView()
+                SavesView(savesData: savesData)
                     .configureView()
             } else {
                 ConfigurationView()

@@ -9,6 +9,7 @@ import SwiftUI
 import InfiniteLoop
 
 struct CardView: View {
+    let babyName: String?
     let calculus: Calculus
     let fontColor: Colors
     let textWidth: CGFloat = 60
@@ -21,8 +22,8 @@ struct CardView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: Sizes.size02.cgFloat) {
-            if let baby = calculus.baby {
-                Text("Recém Nascido: \(baby.name)")
+            if let name = babyName {
+                Text("Recém Nascido: \(name)")
                     .foregroundColor(fontColor.color)
                     .multilineTextAlignment(.leading)
                     .fixedSize(horizontal: false, vertical: true)
@@ -212,15 +213,12 @@ struct CardView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             CardView(
+                babyName: nil,
                 calculus: Calculus(
                     result: Result(
                         weeks: "2",
                         days: "2",
                         totalDays: "12"
-                    ),
-                    baby: Baby(
-                        name: "Bebê Da Silva Sauro da Família Dinossauro",
-                        place: "Rio de Janeiro"
                     )
                 ),
                 fontColor: .secondary
@@ -228,6 +226,7 @@ struct CardView_Previews: PreviewProvider {
             .padding(10)
             
             CardView(
+                babyName: "George",
                 calculus: Calculus(
                     result: Result(
                         weeks: "2",

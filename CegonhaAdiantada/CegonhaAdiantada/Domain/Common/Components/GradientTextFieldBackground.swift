@@ -10,6 +10,7 @@ import SwiftUI
 public struct GradientTextFieldBackground: TextFieldStyle {
     
     let systemImageString: String
+    let fontColor: Colors
     
     // Hidden function to conform to this protocol
     public func _body(configuration: TextField<Self._Label>) -> some View {
@@ -18,8 +19,8 @@ public struct GradientTextFieldBackground: TextFieldStyle {
                 .stroke(
                     LinearGradient(
                         colors: [
-                            Colors.primaryFontColor.color,
-                            Colors.primaryFontColor.color
+                            fontColor.color,
+                            fontColor.color
                         ],
                         startPoint: .leading,
                         endPoint: .trailing
@@ -35,11 +36,11 @@ public struct GradientTextFieldBackground: TextFieldStyle {
                 Image(systemName: systemImageString)
                 // Reference the TextField here
                 configuration
-                    .foregroundColor(Colors.primaryFontColor.color)
+                    .foregroundColor(fontColor.color)
                     .keyboardType(.decimalPad)
             }
             .padding(.leading, 10)
-            .foregroundColor(Colors.primaryFontColor.color)
+            .foregroundColor(fontColor.color)
         }
     }
 }

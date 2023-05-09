@@ -15,10 +15,12 @@ enum BirthCalculation {
         
         struct Response {
             var result = Result()
+            var calculusToBeSaved: Calculus? = nil
         }
         
         struct ViewModel {
             var result = Result()
+            var calculusToBeSaved: Calculus? = nil
         }
     }
 }

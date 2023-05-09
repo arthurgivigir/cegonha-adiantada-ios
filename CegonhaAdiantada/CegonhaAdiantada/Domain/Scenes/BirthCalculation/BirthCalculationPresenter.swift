@@ -23,6 +23,9 @@ extension BirthCalculationPresenter: BirthCalculationPresentationLogic {
         let weeks = String(response.result.weeks)
         let totalDays = String(response.result.totalDays)
         
-        view?.display(viewModel: ViewModel(result: Result(weeks: weeks, days: days, totalDays: totalDays)))
+        view?.display(viewModel: ViewModel(
+            result: Result(weeks: weeks, days: days, totalDays: totalDays),
+            calculusToBeSaved: response.calculusToBeSaved
+        ))
     }
 }
