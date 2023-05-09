@@ -56,11 +56,13 @@ struct HistoryDataView: View {
                 if !historyData.history.isEmpty {
                     ForEach(historyData.history, id: \.self) { calculus in
                         CardView(
+                            babyName: nil,
                             calculus: calculus,
                             fontColor: .secondary
                         )
                         .listRowBackground(Color.clear)
                         .padding(.bottom, .size02)
+                        .frame(maxWidth: .infinity)
                     }
                     .padding(.horizontal, .size20)
                 } else {

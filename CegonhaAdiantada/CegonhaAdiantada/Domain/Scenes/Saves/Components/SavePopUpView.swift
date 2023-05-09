@@ -7,6 +7,7 @@
 
 import SwiftUI
 import InfiniteLoop
+import PopupView
 
 struct SavePopUpView: View {
     let delegate: SavesDelegate
@@ -24,7 +25,7 @@ struct SavePopUpView: View {
         VStack {
             ZStack {
                 VStack {
-                    TextField("Nome ou Id do Paciente", text: $savesData.babysId.maxlenght(20))
+                    TextField("Nome ou Id do Paciente", text: $savesData.babyName.maxlenght(20))
                         .textFieldStyle(
                             GradientTextFieldBackground(
                                 systemImageString: "person.circle.fill",

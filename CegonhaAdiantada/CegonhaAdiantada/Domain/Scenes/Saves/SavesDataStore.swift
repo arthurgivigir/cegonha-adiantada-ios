@@ -8,8 +8,9 @@
 import Foundation
 
 final class SavesDataStore: ObservableObject {
-    @Published var babysId: String = .empty
+    @Published var babyName: String = .empty
     @Published var saves: [Calculus] = []
     @Published var savedCalculus: Calculus? = nil
     @Published var showPopUp: Bool = false
+    @Published var enableButton: Bool = false
 }

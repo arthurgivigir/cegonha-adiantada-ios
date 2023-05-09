@@ -63,6 +63,17 @@ struct Baby: Codable, Hashable {
     }
 }
 
+extension Calculus {
+    var toJson: String? {
+        let encoder = JSONEncoder()
+        if let data = try? encoder.encode(self) {
+            return String(decoding: data, as: UTF8.self)
+        } else {
+            return nil
+        }
+    }
+}
+
 extension Array where Element == Data {
     func toCalculus() -> [Calculus] {
         compactMap { data in

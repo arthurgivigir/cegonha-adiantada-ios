@@ -26,6 +26,14 @@ extension SavesView: SavesDelegate {
     func saveBirthCalculation() {
         let savedCalculus = CalculusJson(context: managedObjectContext)
         savedCalculus.dateTime = .now
+        savedCalculus.json = savesData.savedCalculus?.toJson
+        
+        if savesData.babyName == .empty {
+            savedCalculus.babyName = Date().formatted(.dateTime.locale(Locale(identifier: "pt-br")))
+        } else {
+            savedCalculus.babyName = savesData.babyName
+        }
+        
         PersistenceController.shared.save()
         
         showPopUp = false
@@ -79,14 +87,16 @@ struct SavesView: View {
                     ForEach(savedCalculus, id: \.dateTime) { savedCalculus in
                         if let calculus = savedCalculus.json?.toCalculus {
                             CardView(
+                                babyName: savedCalculus.babyName,
                                 calculus: calculus,
                                 fontColor: .quaternary
                             )
                             .listRowBackground(Color.clear)
                             .padding(.bottom, .size02)
+                            .frame(maxWidth: .infinity)
                         }
                     }
-                    .padding(.horizontal, .size20)                    
+                    .padding(.horizontal, .size20)
                 } else {
                     EmptyListView(
                         titleText: .saveTitle,
