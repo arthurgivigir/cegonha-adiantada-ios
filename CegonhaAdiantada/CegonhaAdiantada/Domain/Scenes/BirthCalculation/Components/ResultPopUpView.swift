@@ -46,6 +46,9 @@ struct ResultPopUpView: View {
                         ) {
                             delegate.closePopUp()
                         }
+                        
+                        Spacer()
+                            .frame(width: 10.0)
 
                         LargeButton(
                             title: "Salvar",

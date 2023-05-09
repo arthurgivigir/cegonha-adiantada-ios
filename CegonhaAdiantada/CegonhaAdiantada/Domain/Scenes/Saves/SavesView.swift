@@ -128,7 +128,7 @@ struct SavesView: View {
             }
             .edgesIgnoringSafeArea(.bottom)
             .navigationBarTitle(
-                Text("Histórico")
+                Text("Salvos")
             )
             .task {
                 fetch()
