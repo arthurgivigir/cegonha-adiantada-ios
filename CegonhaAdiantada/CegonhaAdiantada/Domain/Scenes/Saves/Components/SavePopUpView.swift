@@ -29,7 +29,8 @@ struct SavePopUpView: View {
                         .textFieldStyle(
                             GradientTextFieldBackground(
                                 systemImageString: "person.circle.fill",
-                                fontColor: .quaternary
+                                fontColor: .quaternary,
+                                fontType: .default
                             )
                         )
                     

@@ -53,7 +53,6 @@
 		56BDD1FB29F6AA3A004FF71F /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDD1FA29F6AA3A004FF71F /* TabBarView.swift */; };
 		56BDD1FE29F72E13004FF71F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDD1FD29F72E13004FF71F /* MainView.swift */; };
 		56FAED0B29E763E500022043 /* CegonhaAdiantadaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FAED0A29E763E500022043 /* CegonhaAdiantadaApp.swift */; };
-		56FAED0D29E763E500022043 /* ContentPersistenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FAED0C29E763E500022043 /* ContentPersistenceView.swift */; };
 		56FAED0F29E763E600022043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56FAED0E29E763E600022043 /* Assets.xcassets */; };
 		56FAED1229E763E600022043 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56FAED1129E763E600022043 /* Preview Assets.xcassets */; };
 		56FAED1429E763E600022043 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FAED1329E763E600022043 /* Persistence.swift */; };
@@ -127,7 +126,6 @@
 		56BDD1FD29F72E13004FF71F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		56FAED0729E763E500022043 /* CegonhaAdiantada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CegonhaAdiantada.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FAED0A29E763E500022043 /* CegonhaAdiantadaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CegonhaAdiantadaApp.swift; sourceTree = "<group>"; };
-		56FAED0C29E763E500022043 /* ContentPersistenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPersistenceView.swift; sourceTree = "<group>"; };
 		56FAED0E29E763E600022043 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56FAED1129E763E600022043 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		56FAED1329E763E600022043 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -368,7 +366,6 @@
 				56FE443729EB4B6A007448B9 /* Frameworks */,
 				566B53FE29E9EBB3005A787D /* Domain */,
 				56FAED0A29E763E500022043 /* CegonhaAdiantadaApp.swift */,
-				56FAED0C29E763E500022043 /* ContentPersistenceView.swift */,
 				56FAED0E29E763E600022043 /* Assets.xcassets */,
 				56FAED1829E763E600022043 /* Info.plist */,
 				56FAED1029E763E600022043 /* Preview Content */,
@@ -593,7 +590,6 @@
 				5608FCB229FC56A300A46B7A /* Calculus.swift in Sources */,
 				56605CBA2A012DED003B1BC4 /* ConfigurationConfigurator.swift in Sources */,
 				56605CB92A012DED003B1BC4 /* ConfigurationModel.swift in Sources */,
-				56FAED0D29E763E500022043 /* ContentPersistenceView.swift in Sources */,
 				56605C9A29FEE24D003B1BC4 /* CardView.swift in Sources */,
 				56605CB62A012DED003B1BC4 /* ConfigurationDataStore.swift in Sources */,
 				561C56D329E9FEA200E84508 /* BirthCalculationInteractor.swift in Sources */,
