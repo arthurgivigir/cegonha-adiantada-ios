@@ -21,12 +21,41 @@ struct ConfigurationView: View {
     
     @ObservedObject var Configuration = ConfigurationDataStore()
     
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            .foregroundColor: UIColor(Colors.secondary.color)
+        ]
+        UINavigationBar.appearance().titleTextAttributes = [
+            .foregroundColor: UIColor(Colors.secondary.color)
+        ]
+        UINavigationBar.appearance().barTintColor = .clear
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        
+        UICollectionView.appearance().backgroundColor = .clear
+    }
+    
     var body: some View {
-        VStack {
-            Text("Hello World")
-        }
-        .task {
-            fetch()
+        NavigationView {
+            ScrollWithBackgroundView(
+                fillColor: Colors.secondary.color.opacity(0.1),
+                lottieAnimation: .caringMom
+            ) {
+                Spacer()
+                    .frame(height: 100)
+                
+                Text("teste")
+                
+                Spacer()
+                    .frame(height: 150)
+            }
+            .edgesIgnoringSafeArea(.bottom)
+            .navigationBarTitle(
+                Text("Configurações")
+            )
+            .task {
+                fetch()
+            }
         }
     }
 }
