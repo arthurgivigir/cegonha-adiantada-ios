@@ -14,6 +14,7 @@
 		5608FCAA29FBFC8900A46B7A /* HistoryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608FCA429FBFC8900A46B7A /* HistoryDataModel.swift */; };
 		5608FCAB29FBFC8900A46B7A /* HistoryDataConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608FCA529FBFC8900A46B7A /* HistoryDataConfigurator.swift */; };
 		5608FCAF29FC4E2A00A46B7A /* baby_daddy.json in Resources */ = {isa = PBXBuildFile; fileRef = 5608FCAE29FC4E2900A46B7A /* baby_daddy.json */; };
+		5615F89C2A197992004B30D8 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 5615F89B2A197992004B30D8 /* GoogleMobileAds */; };
 		561C56D129E9FEA200E84508 /* BirthCalculationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C56CB29E9FEA200E84508 /* BirthCalculationPresenter.swift */; };
 		561C56D229E9FEA200E84508 /* BirthCalculationDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C56CC29E9FEA200E84508 /* BirthCalculationDataStore.swift */; };
 		561C56D329E9FEA200E84508 /* BirthCalculationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C56CD29E9FEA200E84508 /* BirthCalculationInteractor.swift */; };
@@ -199,6 +200,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5615F89C2A197992004B30D8 /* GoogleMobileAds in Frameworks */,
 				56BDD1F429F5D18C004FF71F /* PopupView in Frameworks */,
 				56FE443B29EB4C20007448B9 /* InfiniteLoop in Frameworks */,
 				56AA83E029EF4C540049ABB2 /* Lottie in Frameworks */,
@@ -529,6 +531,7 @@
 				56FE443A29EB4C20007448B9 /* InfiniteLoop */,
 				56AA83DF29EF4C540049ABB2 /* Lottie */,
 				56BDD1F329F5D18C004FF71F /* PopupView */,
+				5615F89B2A197992004B30D8 /* GoogleMobileAds */,
 			);
 			productName = CegonhaAdiantada;
 			productReference = 56FAED0729E763E500022043 /* CegonhaAdiantada.app */;
@@ -608,6 +611,7 @@
 			packageReferences = (
 				56AA83DE29EF4C540049ABB2 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				56BDD1F229F5D18C004FF71F /* XCRemoteSwiftPackageReference "PopupView" */,
+				5615F89A2A197992004B30D8 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = 56FAED0829E763E500022043 /* Products */;
 			projectDirPath = "";
@@ -1133,6 +1137,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5615F89A2A197992004B30D8 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 		56AA83DE29EF4C540049ABB2 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -1152,6 +1164,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5615F89B2A197992004B30D8 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5615F89A2A197992004B30D8 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
 		565E8B112A0FF435005904CD /* InfiniteLoop */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = InfiniteLoop;
