@@ -29,6 +29,12 @@ struct CardView: View {
             .formatted(.dateTime.locale(Locale(identifier: "pt-br")))
     }
     
+    var formattedBirthDate: String {
+        calculus
+            .birthDate
+            .formatted(.dateTime.locale(Locale(identifier: "pt-br")))
+    }
+    
     init(
         babyName: String? = nil,
         calculus: Calculus,
@@ -84,6 +90,18 @@ struct CardView: View {
                         .weight(.medium)
                     )
             }
+            
+            Text("Data de Nascimento: \(formattedBirthDate)")
+                .foregroundColor(fontColor.color)
+                .multilineTextAlignment(.leading)
+                .fixedSize(horizontal: false, vertical: true)
+                .font(
+                    .system(
+                        .body,
+                        design: .rounded
+                    )
+                    .weight(.light)
+                )
             
             Text("O recém nascido tinha na data e hora do cálculo:")
                 .foregroundColor(fontColor.color)
