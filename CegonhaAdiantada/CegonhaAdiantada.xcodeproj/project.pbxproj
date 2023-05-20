@@ -14,7 +14,6 @@
 		5608FCAA29FBFC8900A46B7A /* HistoryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608FCA429FBFC8900A46B7A /* HistoryDataModel.swift */; };
 		5608FCAB29FBFC8900A46B7A /* HistoryDataConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608FCA529FBFC8900A46B7A /* HistoryDataConfigurator.swift */; };
 		5608FCAF29FC4E2A00A46B7A /* baby_daddy.json in Resources */ = {isa = PBXBuildFile; fileRef = 5608FCAE29FC4E2900A46B7A /* baby_daddy.json */; };
-		5608FCB229FC56A300A46B7A /* Calculus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608FCB129FC56A300A46B7A /* Calculus.swift */; };
 		561C56D129E9FEA200E84508 /* BirthCalculationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C56CB29E9FEA200E84508 /* BirthCalculationPresenter.swift */; };
 		561C56D229E9FEA200E84508 /* BirthCalculationDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C56CC29E9FEA200E84508 /* BirthCalculationDataStore.swift */; };
 		561C56D329E9FEA200E84508 /* BirthCalculationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C56CD29E9FEA200E84508 /* BirthCalculationInteractor.swift */; };
@@ -23,6 +22,20 @@
 		561C56D629E9FEA200E84508 /* BirthCalculationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C56D029E9FEA200E84508 /* BirthCalculationConfigurator.swift */; };
 		562FC40529EF52D800D5C6E9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562FC40429EF52D800D5C6E9 /* Colors.swift */; };
 		562FC40B29F0164200D5C6E9 /* baby_mom.json in Resources */ = {isa = PBXBuildFile; fileRef = 562FC40A29F0164200D5C6E9 /* baby_mom.json */; };
+		5652C29C2A0FF70C0013FFAF /* Calculus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5652C29B2A0FF70C0013FFAF /* Calculus.swift */; };
+		5652C29D2A0FF72C0013FFAF /* Calculus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5652C29B2A0FF70C0013FFAF /* Calculus.swift */; };
+		5652C29E2A0FF82B0013FFAF /* PentagonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDD1EE29F5D021004FF71F /* PentagonShape.swift */; };
+		5652C29F2A0FF8620013FFAF /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562FC40429EF52D800D5C6E9 /* Colors.swift */; };
+		5652C2A02A0FF9050013FFAF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56605C9929FEE24D003B1BC4 /* CardView.swift */; };
+		565E8AFF2A0FF401005904CD /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 565E8AFE2A0FF401005904CD /* WidgetKit.framework */; };
+		565E8B012A0FF401005904CD /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 565E8B002A0FF401005904CD /* SwiftUI.framework */; };
+		565E8B042A0FF401005904CD /* CegonhaAdiantadaWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E8B032A0FF401005904CD /* CegonhaAdiantadaWidgetBundle.swift */; };
+		565E8B062A0FF401005904CD /* CegonhaAdiantadaWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E8B052A0FF401005904CD /* CegonhaAdiantadaWidget.swift */; };
+		565E8B082A0FF403005904CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 565E8B072A0FF403005904CD /* Assets.xcassets */; };
+		565E8B0C2A0FF403005904CD /* CegonhaAdiantadaWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 565E8AFD2A0FF401005904CD /* CegonhaAdiantadaWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		565E8B122A0FF435005904CD /* InfiniteLoop in Frameworks */ = {isa = PBXBuildFile; productRef = 565E8B112A0FF435005904CD /* InfiniteLoop */; };
+		565E8B172A0FF56B005904CD /* CegonhaAdiantadaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E8B152A0FF4E4005904CD /* CegonhaAdiantadaProvider.swift */; };
+		565E8B1A2A0FF5A5005904CD /* CegonhaAdiantadaWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E8B182A0FF5A0005904CD /* CegonhaAdiantadaWidgetEntryView.swift */; };
 		56605C9A29FEE24D003B1BC4 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56605C9929FEE24D003B1BC4 /* CardView.swift */; };
 		56605C9C2A0003CB003B1BC4 /* ScrollWithBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56605C9B2A0003CB003B1BC4 /* ScrollWithBackgroundView.swift */; };
 		56605C9E2A000C2E003B1BC4 /* empty_view_secondary.json in Resources */ = {isa = PBXBuildFile; fileRef = 56605C9D2A000C2E003B1BC4 /* empty_view_secondary.json */; };
@@ -64,6 +77,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		565E8B0A2A0FF403005904CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56FAECFF29E763E500022043 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 565E8AFC2A0FF401005904CD;
+			remoteInfo = CegonhaAdiantadaWidgetExtension;
+		};
 		56FAED1E29E763E600022043 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 56FAECFF29E763E500022043 /* Project object */;
@@ -80,6 +100,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		565E8B0D2A0FF403005904CD /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				565E8B0C2A0FF403005904CD /* CegonhaAdiantadaWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		5608FCA029FBFC8900A46B7A /* HistoryDataPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDataPresenter.swift; sourceTree = "<group>"; };
 		5608FCA129FBFC8900A46B7A /* HistoryDataDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDataDataStore.swift; sourceTree = "<group>"; };
@@ -88,7 +122,6 @@
 		5608FCA429FBFC8900A46B7A /* HistoryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDataModel.swift; sourceTree = "<group>"; };
 		5608FCA529FBFC8900A46B7A /* HistoryDataConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDataConfigurator.swift; sourceTree = "<group>"; };
 		5608FCAE29FC4E2900A46B7A /* baby_daddy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = baby_daddy.json; sourceTree = "<group>"; };
-		5608FCB129FC56A300A46B7A /* Calculus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculus.swift; sourceTree = "<group>"; };
 		561C56CB29E9FEA200E84508 /* BirthCalculationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthCalculationPresenter.swift; sourceTree = "<group>"; };
 		561C56CC29E9FEA200E84508 /* BirthCalculationDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthCalculationDataStore.swift; sourceTree = "<group>"; };
 		561C56CD29E9FEA200E84508 /* BirthCalculationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthCalculationInteractor.swift; sourceTree = "<group>"; };
@@ -97,6 +130,18 @@
 		561C56D029E9FEA200E84508 /* BirthCalculationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthCalculationConfigurator.swift; sourceTree = "<group>"; };
 		562FC40429EF52D800D5C6E9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		562FC40A29F0164200D5C6E9 /* baby_mom.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = baby_mom.json; sourceTree = "<group>"; };
+		5652C29B2A0FF70C0013FFAF /* Calculus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculus.swift; sourceTree = "<group>"; };
+		565E8AFD2A0FF401005904CD /* CegonhaAdiantadaWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CegonhaAdiantadaWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		565E8AFE2A0FF401005904CD /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		565E8B002A0FF401005904CD /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		565E8B032A0FF401005904CD /* CegonhaAdiantadaWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CegonhaAdiantadaWidgetBundle.swift; sourceTree = "<group>"; };
+		565E8B052A0FF401005904CD /* CegonhaAdiantadaWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CegonhaAdiantadaWidget.swift; sourceTree = "<group>"; };
+		565E8B072A0FF403005904CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		565E8B092A0FF403005904CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		565E8B132A0FF44A005904CD /* CegonhaAdiantada.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CegonhaAdiantada.entitlements; sourceTree = "<group>"; };
+		565E8B142A0FF46D005904CD /* CegonhaAdiantadaWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CegonhaAdiantadaWidgetExtension.entitlements; sourceTree = "<group>"; };
+		565E8B152A0FF4E4005904CD /* CegonhaAdiantadaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CegonhaAdiantadaProvider.swift; sourceTree = "<group>"; };
+		565E8B182A0FF5A0005904CD /* CegonhaAdiantadaWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CegonhaAdiantadaWidgetEntryView.swift; sourceTree = "<group>"; };
 		56605C9929FEE24D003B1BC4 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		56605C9B2A0003CB003B1BC4 /* ScrollWithBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollWithBackgroundView.swift; sourceTree = "<group>"; };
 		56605C9D2A000C2E003B1BC4 /* empty_view_secondary.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = empty_view_secondary.json; sourceTree = "<group>"; };
@@ -140,6 +185,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		565E8AFA2A0FF401005904CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				565E8B012A0FF401005904CD /* SwiftUI.framework in Frameworks */,
+				565E8B122A0FF435005904CD /* InfiniteLoop in Frameworks */,
+				565E8AFF2A0FF401005904CD /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		56FAED0429E763E500022043 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -181,14 +236,6 @@
 			path = History;
 			sourceTree = "<group>";
 		};
-		5608FCB029FC566900A46B7A /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				5608FCB129FC56A300A46B7A /* Calculus.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		561C56BE29E9FE6F00E84508 /* BirthCalculation */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +256,27 @@
 				562FC40429EF52D800D5C6E9 /* Colors.swift */,
 			);
 			path = Colors;
+			sourceTree = "<group>";
+		};
+		5652C29A2A0FF70C0013FFAF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5652C29B2A0FF70C0013FFAF /* Calculus.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		565E8B022A0FF401005904CD /* CegonhaAdiantadaWidget */ = {
+			isa = PBXGroup;
+			children = (
+				565E8B072A0FF403005904CD /* Assets.xcassets */,
+				565E8B152A0FF4E4005904CD /* CegonhaAdiantadaProvider.swift */,
+				565E8B052A0FF401005904CD /* CegonhaAdiantadaWidget.swift */,
+				565E8B032A0FF401005904CD /* CegonhaAdiantadaWidgetBundle.swift */,
+				565E8B182A0FF5A0005904CD /* CegonhaAdiantadaWidgetEntryView.swift */,
+				565E8B092A0FF403005904CD /* Info.plist */,
+			);
+			path = CegonhaAdiantadaWidget;
 			sourceTree = "<group>";
 		};
 		56605C9829FEE240003B1BC4 /* Components */ = {
@@ -287,8 +355,8 @@
 		56AA83E129EF4E200049ABB2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				5652C29A2A0FF70C0013FFAF /* Models */,
 				56811B362A093DC6006AD3D4 /* DataPersistence */,
-				5608FCB029FC566900A46B7A /* Models */,
 				56BDD1EB29F5CFE9004FF71F /* Components */,
 				562FC40329EF52CD00D5C6E9 /* Colors */,
 				56AA83E229EF4E280049ABB2 /* LottieFiles */,
@@ -342,9 +410,11 @@
 		56FAECFE29E763E500022043 = {
 			isa = PBXGroup;
 			children = (
+				565E8B142A0FF46D005904CD /* CegonhaAdiantadaWidgetExtension.entitlements */,
 				56FAED0929E763E500022043 /* CegonhaAdiantada */,
 				56FAED2029E763E600022043 /* CegonhaAdiantadaTests */,
 				56FAED2A29E763E600022043 /* CegonhaAdiantadaUITests */,
+				565E8B022A0FF401005904CD /* CegonhaAdiantadaWidget */,
 				56FAED0829E763E500022043 /* Products */,
 				56FE443929EB4C20007448B9 /* Frameworks */,
 			);
@@ -356,6 +426,7 @@
 				56FAED0729E763E500022043 /* CegonhaAdiantada.app */,
 				56FAED1D29E763E600022043 /* CegonhaAdiantadaTests.xctest */,
 				56FAED2729E763E600022043 /* CegonhaAdiantadaUITests.xctest */,
+				565E8AFD2A0FF401005904CD /* CegonhaAdiantadaWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -363,6 +434,7 @@
 		56FAED0929E763E500022043 /* CegonhaAdiantada */ = {
 			isa = PBXGroup;
 			children = (
+				565E8B132A0FF44A005904CD /* CegonhaAdiantada.entitlements */,
 				56FE443729EB4B6A007448B9 /* Frameworks */,
 				566B53FE29E9EBB3005A787D /* Domain */,
 				56FAED0A29E763E500022043 /* CegonhaAdiantadaApp.swift */,
@@ -409,6 +481,8 @@
 		56FE443929EB4C20007448B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				565E8AFE2A0FF401005904CD /* WidgetKit.framework */,
+				565E8B002A0FF401005904CD /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -416,6 +490,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		565E8AFC2A0FF401005904CD /* CegonhaAdiantadaWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 565E8B102A0FF403005904CD /* Build configuration list for PBXNativeTarget "CegonhaAdiantadaWidgetExtension" */;
+			buildPhases = (
+				565E8AF92A0FF401005904CD /* Sources */,
+				565E8AFA2A0FF401005904CD /* Frameworks */,
+				565E8AFB2A0FF401005904CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CegonhaAdiantadaWidgetExtension;
+			packageProductDependencies = (
+				565E8B112A0FF435005904CD /* InfiniteLoop */,
+			);
+			productName = CegonhaAdiantadaWidgetExtension;
+			productReference = 565E8AFD2A0FF401005904CD /* CegonhaAdiantadaWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		56FAED0629E763E500022043 /* CegonhaAdiantada */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56FAED3129E763E600022043 /* Build configuration list for PBXNativeTarget "CegonhaAdiantada" */;
@@ -423,10 +517,12 @@
 				56FAED0329E763E500022043 /* Sources */,
 				56FAED0429E763E500022043 /* Frameworks */,
 				56FAED0529E763E500022043 /* Resources */,
+				565E8B0D2A0FF403005904CD /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				565E8B0B2A0FF403005904CD /* PBXTargetDependency */,
 			);
 			name = CegonhaAdiantada;
 			packageProductDependencies = (
@@ -484,6 +580,9 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					565E8AFC2A0FF401005904CD = {
+						CreatedOnToolsVersion = 14.3;
+					};
 					56FAED0629E763E500022043 = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -517,11 +616,20 @@
 				56FAED0629E763E500022043 /* CegonhaAdiantada */,
 				56FAED1C29E763E600022043 /* CegonhaAdiantadaTests */,
 				56FAED2629E763E600022043 /* CegonhaAdiantadaUITests */,
+				565E8AFC2A0FF401005904CD /* CegonhaAdiantadaWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		565E8AFB2A0FF401005904CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				565E8B082A0FF403005904CD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		56FAED0529E763E500022043 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -554,6 +662,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		565E8AF92A0FF401005904CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				565E8B042A0FF401005904CD /* CegonhaAdiantadaWidgetBundle.swift in Sources */,
+				5652C29E2A0FF82B0013FFAF /* PentagonShape.swift in Sources */,
+				565E8B1A2A0FF5A5005904CD /* CegonhaAdiantadaWidgetEntryView.swift in Sources */,
+				5652C29F2A0FF8620013FFAF /* Colors.swift in Sources */,
+				565E8B172A0FF56B005904CD /* CegonhaAdiantadaProvider.swift in Sources */,
+				5652C29D2A0FF72C0013FFAF /* Calculus.swift in Sources */,
+				5652C2A02A0FF9050013FFAF /* CardView.swift in Sources */,
+				565E8B062A0FF401005904CD /* CegonhaAdiantadaWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		56FAED0329E763E500022043 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -571,6 +694,7 @@
 				5608FCAB29FBFC8900A46B7A /* HistoryDataConfigurator.swift in Sources */,
 				56605CAD2A012DAD003B1BC4 /* SavesConfigurator.swift in Sources */,
 				561C56D429E9FEA200E84508 /* BirthCalculationView.swift in Sources */,
+				5652C29C2A0FF70C0013FFAF /* Calculus.swift in Sources */,
 				5608FCAA29FBFC8900A46B7A /* HistoryDataModel.swift in Sources */,
 				56FAED1429E763E600022043 /* Persistence.swift in Sources */,
 				56605CAC2A012DAD003B1BC4 /* SavesModel.swift in Sources */,
@@ -587,7 +711,6 @@
 				561C56D629E9FEA200E84508 /* BirthCalculationConfigurator.swift in Sources */,
 				56605CA82A012DAD003B1BC4 /* SavesPresenter.swift in Sources */,
 				56605CB52A012DED003B1BC4 /* ConfigurationPresenter.swift in Sources */,
-				5608FCB229FC56A300A46B7A /* Calculus.swift in Sources */,
 				56605CBA2A012DED003B1BC4 /* ConfigurationConfigurator.swift in Sources */,
 				56605CB92A012DED003B1BC4 /* ConfigurationModel.swift in Sources */,
 				56605C9A29FEE24D003B1BC4 /* CardView.swift in Sources */,
@@ -621,6 +744,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		565E8B0B2A0FF403005904CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 565E8AFC2A0FF401005904CD /* CegonhaAdiantadaWidgetExtension */;
+			targetProxy = 565E8B0A2A0FF403005904CD /* PBXContainerItemProxy */;
+		};
 		56FAED1F29E763E600022043 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 56FAED0629E763E500022043 /* CegonhaAdiantada */;
@@ -634,6 +762,62 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		565E8B0E2A0FF403005904CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = CegonhaAdiantadaWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H7EDV5524K;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CegonhaAdiantadaWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CegonhaAdiantadaWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.givigir.CegonhaAdiantada.CegonhaAdiantadaWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		565E8B0F2A0FF403005904CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = CegonhaAdiantadaWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H7EDV5524K;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CegonhaAdiantadaWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CegonhaAdiantadaWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.givigir.CegonhaAdiantada.CegonhaAdiantadaWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		56FAED2F29E763E600022043 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -751,8 +935,10 @@
 		56FAED3229E763E600022043 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CegonhaAdiantada/CegonhaAdiantada.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CegonhaAdiantada/Preview Content\"";
@@ -782,8 +968,10 @@
 		56FAED3329E763E600022043 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CegonhaAdiantada/CegonhaAdiantada.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CegonhaAdiantada/Preview Content\"";
@@ -889,6 +1077,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		565E8B102A0FF403005904CD /* Build configuration list for PBXNativeTarget "CegonhaAdiantadaWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				565E8B0E2A0FF403005904CD /* Debug */,
+				565E8B0F2A0FF403005904CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		56FAED0229E763E500022043 /* Build configuration list for PBXProject "CegonhaAdiantada" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -947,6 +1144,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		565E8B112A0FF435005904CD /* InfiniteLoop */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = InfiniteLoop;
+		};
 		56AA83DF29EF4C540049ABB2 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 56AA83DE29EF4C540049ABB2 /* XCRemoteSwiftPackageReference "lottie-ios" */;

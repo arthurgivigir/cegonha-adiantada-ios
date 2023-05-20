@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import InfiniteLoop
 
 struct Calculus: Codable, Hashable {
     private(set) var id = UUID()

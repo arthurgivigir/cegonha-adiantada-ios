@@ -15,12 +15,12 @@ final class HistoryDataInteractor {
     typealias Request = HistoryData.LoadHistoryData.Request
     typealias Response = HistoryData.LoadHistoryData.Response
     var presenter: HistoryDataPresentationLogic?
-    let defaults = UserDefaults.standard
+    let history = UserDefaults(suiteName: "group.com.givigir.CegonhaAdiantada")?.object(forKey: "history")
 }
 
 extension HistoryDataInteractor: HistoryDataBusinessLogic {
     func load(request: Request) {
-        let results = defaults.object(forKey: "history") as? [Data] ?? []
+        let results = history as? [Data] ?? []
         let calculus = results.toCalculus().sorted { $0.date > $1.date }
         presenter?.present(response:  Response(calculus: calculus))
     }
