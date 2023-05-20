@@ -8,9 +8,19 @@
 import SwiftUI
 
 public struct GradientTextFieldBackground: TextFieldStyle {
-    
     let systemImageString: String
     let fontColor: Colors
+    let fontType: UIKeyboardType
+    
+    init(
+        systemImageString: String,
+        fontColor: Colors,
+        fontType: UIKeyboardType = .decimalPad
+    ) {
+        self.systemImageString = systemImageString
+        self.fontColor = fontColor
+        self.fontType = fontType
+    }
     
     // Hidden function to conform to this protocol
     public func _body(configuration: TextField<Self._Label>) -> some View {
@@ -37,7 +47,7 @@ public struct GradientTextFieldBackground: TextFieldStyle {
                 // Reference the TextField here
                 configuration
                     .foregroundColor(fontColor.color)
-                    .keyboardType(.decimalPad)
+                    .keyboardType(fontType)
             }
             .padding(.leading, 10)
             .foregroundColor(fontColor.color)

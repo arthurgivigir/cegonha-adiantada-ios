@@ -16,7 +16,7 @@ final class BirthCalculationInteractor {
     typealias Request = BirthCalculation.LoadBirthCalculation.Request
     typealias Response = BirthCalculation.LoadBirthCalculation.Response
     var presenter: BirthCalculationPresentationLogic?
-    let defaults = UserDefaults.standard
+    let userDefaults: UserDefaults? = UserDefaults(suiteName: "group.com.givigir.CegonhaAdiantada")
 }
 
 extension BirthCalculationInteractor: BirthCalculationBusinessLogic {
@@ -61,9 +61,9 @@ private extension BirthCalculationInteractor {
         do {
             let encoder = JSONEncoder()
             let data = try encoder.encode(calculus)
-            var results = defaults.object(forKey: "history") as? [Data] ?? []
+            var results = userDefaults?.object(forKey: "history") as? [Data] ?? []
             results.append(data)
-            defaults.set(results, forKey: "history")
+            userDefaults?.set(results, forKey: "history")
         } catch {
             print("⚠️ Unable to Encode Result (\(error))")
         }

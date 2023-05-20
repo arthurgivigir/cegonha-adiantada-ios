@@ -44,7 +44,6 @@ extension BirthCalculationView: BirthCalculationDelegate {
     }
     
     func saveBirthCalculation() {
-        fetch()
         savesData.showPopUp = true
         savesData.savedCalculus = birthCalculation.calculusToBeSaved
         birthCalculation.selectedTabBar = .saves

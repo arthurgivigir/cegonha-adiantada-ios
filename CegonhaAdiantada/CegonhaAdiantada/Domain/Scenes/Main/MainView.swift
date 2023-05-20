@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
     @ObservedObject var savesData = SavesDataStore()
     @ObservedObject var birthCalculation = BirthCalculationDataStore()
+    @ObservedObject var historyData = HistoryDataDataStore()
     @State var selectedTab: Tab = .home
     
     var body: some View {
@@ -21,11 +22,15 @@ struct MainView: View {
                 )
                 .configureView()
             } else if selectedTab == .history {
-                HistoryDataView()
-                    .configureView()
+                HistoryDataView(
+                    historyData: historyData
+                )
+                .configureView()
             } else if selectedTab == .saves {
-                SavesView(savesData: savesData)
-                    .configureView()
+                SavesView(
+                    savesData: savesData
+                )
+                .configureView()
             } else {
                 ConfigurationView()
                     .configureView()

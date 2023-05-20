@@ -28,9 +28,10 @@ extension HistoryDataView: HistoryDataDisplayLogic {
 struct HistoryDataView: View {
     var interactor: HistoryDataBusinessLogic?
     
-    @ObservedObject var historyData = HistoryDataDataStore()
+    @ObservedObject var historyData: HistoryDataDataStore
     
-    init() {
+    init(historyData: HistoryDataDataStore) {
+        self.historyData = historyData
         UINavigationBar.appearance().largeTitleTextAttributes = [
             .foregroundColor: UIColor(Colors.secondary.color)
         ]
@@ -89,6 +90,6 @@ struct HistoryDataView: View {
 
 struct HistoryDataView_Previews: PreviewProvider {
     static var previews: some View {
-        return HistoryDataView()
+        return HistoryDataView(historyData: HistoryDataDataStore())
     }
 }

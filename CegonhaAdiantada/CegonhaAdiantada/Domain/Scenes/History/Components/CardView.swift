@@ -13,13 +13,34 @@ struct CardView: View {
     let calculus: Calculus
     let fontColor: Colors
     let textWidth: CGFloat = 60
+    let isWidget: Bool
+    
+    var titleFont: Font.TextStyle {
+        isWidget ? .callout : .title3
+    }
+    
+    var bodyFont: Font.TextStyle {
+        isWidget ? .caption : .body
+    }
     
     var formattedDate: String {
         calculus
             .date
             .formatted(.dateTime.locale(Locale(identifier: "pt-br")))
     }
-
+    
+    init(
+        babyName: String? = nil,
+        calculus: Calculus,
+        fontColor: Colors,
+        isWidget: Bool = false
+    ) {
+        self.babyName = babyName
+        self.calculus = calculus
+        self.fontColor = fontColor
+        self.isWidget = isWidget
+    }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: Sizes.size02.cgFloat) {
             if let name = babyName {
@@ -29,7 +50,7 @@ struct CardView: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .font(
                         .system(
-                            .title3,
+                            titleFont,
                             design: .rounded
                         )
                         .weight(.medium)
@@ -57,7 +78,7 @@ struct CardView: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .font(
                         .system(
-                            .title3,
+                            titleFont,
                             design: .rounded
                         )
                         .weight(.medium)
@@ -70,14 +91,14 @@ struct CardView: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .font(
                     .system(
-                        .body,
+                        bodyFont,
                         design: .rounded
                     )
                     .weight(.light)
                 )
             
             Spacer()
-                .frame(height: Sizes.size14.cgFloat)
+                .frame(height: isWidget ? Sizes.size04.cgFloat : Sizes.size14.cgFloat)
             
             HStack {
                 VStack(spacing: Sizes.size06.cgFloat) {
@@ -85,7 +106,7 @@ struct CardView: View {
                         .foregroundColor(fontColor.color)
                         .font(
                             .system(
-                                .body,
+                                bodyFont,
                                 design: .rounded
                             )
                             .weight(.bold)
@@ -120,7 +141,7 @@ struct CardView: View {
                         .foregroundColor(fontColor.color)
                         .font(
                             .system(
-                                .body,
+                                bodyFont,
                                 design: .rounded
                             )
                             .weight(.bold)
@@ -154,7 +175,7 @@ struct CardView: View {
                     .foregroundColor(fontColor.color)
                     .font(
                         .system(
-                            .body,
+                            bodyFont,
                             design: .rounded
                         )
                         .weight(.bold)
@@ -165,13 +186,13 @@ struct CardView: View {
                         .foregroundColor(fontColor.color)
                         .font(
                             .system(
-                                .body,
+                                bodyFont,
                                 design: .rounded
                             )
                             .weight(.bold)
                         )
                     
-                    Text("Dia(s) no Total")
+                    Text(isWidget ? "Total" : "Dia(s) no Total")
                         .foregroundColor(fontColor.color)
                         .font(
                             .system(
@@ -200,11 +221,15 @@ struct CardView: View {
         .frame(maxWidth: .infinity)
         .multilineTextAlignment(.leading)
         .background {
-            RoundedRectangle(
-                cornerRadius: 10,
-                style: .continuous
-            )
-            .fill(.white)
+            if isWidget {
+                EmptyView()
+            } else {
+                RoundedRectangle(
+                    cornerRadius: 10,
+                    style: .continuous
+                )
+                .fill(.white)
+            }
         }
     }
 }

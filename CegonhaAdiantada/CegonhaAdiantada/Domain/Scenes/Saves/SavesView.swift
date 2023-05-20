@@ -51,7 +51,7 @@ struct SavesView: View {
     @ObservedObject var savesData: SavesDataStore
     
     @FetchRequest(sortDescriptors: [
-        SortDescriptor(\.dateTime)
+        SortDescriptor(\.dateTime, order: .reverse)
     ]) var savedCalculus: FetchedResults<CalculusJson>
     
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -107,7 +107,7 @@ struct SavesView: View {
                 }
                 
                 Spacer()
-                    .frame(height: 100)
+                    .frame(height: 150)
             }
             .popup(isPresented: $showPopUp) {
                 SavePopUpView(
