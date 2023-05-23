@@ -37,14 +37,18 @@ struct MainView: View {
             }
         }
         .overlay(alignment: .bottom) {
-            TabBarView(selectedTab: $birthCalculation.selectedTabBar)
-                .padding(.bottom, 20)
-                .onChange(of: birthCalculation.selectedTabBar) { newValue in
-                    withAnimation(.easeInOut) {
-                        selectedTab = newValue
+            VStack {
+                BannerView(bannerID: "ca-app-pub-3940256099942544/2934735716", width: 350)
+                    .frame(height: 100)
+                TabBarView(selectedTab: $birthCalculation.selectedTabBar)
+                    .padding(.bottom, 20)
+                    .onChange(of: birthCalculation.selectedTabBar) { newValue in
+                        withAnimation(.easeInOut) {
+                            selectedTab = newValue
+                        }
                     }
-                }
-                .frame(alignment: .bottom)
+                    .frame(alignment: .bottom)
+            }
         }
         .ignoresSafeArea(.keyboard)
     }
