@@ -76,13 +76,19 @@ struct SavesView: View {
     
     var body: some View {
         NavigationView {
-            ScrollWithBackgroundView(
+            ListWithBackgroundView(
                 fillColor: Colors.quaternary.color.opacity(0.1),
-                lottieAnimation: .caringMom
+                lottieAnimation: .caringMom,
+                items: $savedCalculus
             ) {
+//            GenericList(savedCalculus, id: \.self) { _ in
                 Spacer()
                     .frame(height: 100)
                 
+                List(savedCalculus) {_ in 
+                    Text("")
+                }
+
                 if !savedCalculus.isEmpty {
                     ForEach(savedCalculus, id: \.dateTime) { savedCalculus in
                         if let calculus = savedCalculus.json?.toCalculus {
@@ -91,6 +97,11 @@ struct SavesView: View {
                                 calculus: calculus,
                                 fontColor: .quaternary
                             )
+                            .swipeActions(edge: .trailing) {
+                                Button(role: .destructive, action: { print("") } ) {
+                                    Label("Delete", systemImage: "trash")
+                                }
+                            }
                             .listRowBackground(Color.clear)
                             .padding(.bottom, .size02)
                             .frame(maxWidth: .infinity)
@@ -105,7 +116,7 @@ struct SavesView: View {
                         lottieAnimation: .emptyViewQuaternary
                     )
                 }
-                
+
                 Spacer()
                     .frame(height: 150)
             }
@@ -135,10 +146,24 @@ struct SavesView: View {
             }
         }
     }
+    
+    func delete(at offsets: IndexSet) {
+        for offset in offsets {
+            // find this book in our fetch request
+            let calculus = savedCalculus[offset]
+            
+            // delete it from the context
+            managedObjectContext.delete(calculus)
+        }
+        
+        // save the context
+        try? managedObjectContext.save()
+    }
 }
 
 struct SavesView_Previews: PreviewProvider {
     static var previews: some View {
-        return SavesView(savesData: SavesDataStore())
+        SavesView(savesData: SavesDataStore())
+            .environment(\.managedObjectContext, PersistenceController.preview)
     }
 }
