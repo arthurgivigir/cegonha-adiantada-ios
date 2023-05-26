@@ -18,7 +18,8 @@ struct CegonhaAdiantadaWidgetEntryView : View {
                     babyName: nil,
                     calculus: entry.calculus,
                     fontColor: .primaryFontColor,
-                    isWidget: true
+                    isWidget: true,
+                    index: 0
                 )
                 .listRowBackground(Color.clear)
                 .padding(.bottom, .size02)

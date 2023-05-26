@@ -84,12 +84,14 @@ struct SavesView: View {
                     .frame(height: 100)
                 
                 if !savedCalculus.isEmpty {
-                    ForEach(savedCalculus, id: \.dateTime) { savedCalculus in
-                        if let calculus = savedCalculus.json?.toCalculus {
+                    ForEach(savedCalculus.indices, id: \.self) { index in
+                        if let calculus = savedCalculus[index].json?.toCalculus {
                             CardView(
-                                babyName: savedCalculus.babyName,
+                                babyName: savedCalculus[index].babyName,
                                 calculus: calculus,
-                                fontColor: .quaternary
+                                fontColor: .quaternary,
+                                index: index,
+                                delegate: self
                             )
                             .listRowBackground(Color.clear)
                             .padding(.bottom, .size02)
@@ -105,7 +107,7 @@ struct SavesView: View {
                         lottieAnimation: .emptyViewQuaternary
                     )
                 }
-                
+
                 Spacer()
                     .frame(height: 150)
             }
@@ -135,10 +137,29 @@ struct SavesView: View {
             }
         }
     }
+    
+    func delete(index: Int) {
+        let calculus = savedCalculus[index]
+        
+        withAnimation {
+            // delete it from the context
+            managedObjectContext.delete(calculus)
+            
+            // save the context
+            try? managedObjectContext.save()
+        }
+    }
+}
+
+extension SavesView: CardViewDelegate {
+    func deleteItem(index: Int) {
+        delete(index: index)
+    }
 }
 
 struct SavesView_Previews: PreviewProvider {
     static var previews: some View {
-        return SavesView(savesData: SavesDataStore())
+        SavesView(savesData: SavesDataStore())
+            .environment(\.managedObjectContext, PersistenceController.preview)
     }
 }

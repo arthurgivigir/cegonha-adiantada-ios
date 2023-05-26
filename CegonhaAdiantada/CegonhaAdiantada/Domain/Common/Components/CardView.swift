@@ -8,12 +8,18 @@
 import SwiftUI
 import InfiniteLoop
 
+protocol CardViewDelegate {
+    func deleteItem(index: Int)
+}
+
 struct CardView: View {
     let babyName: String?
     let calculus: Calculus
     let fontColor: Colors
     let textWidth: CGFloat = 60
     let isWidget: Bool
+    let index: Int
+    let delegate: CardViewDelegate?
     
     var titleFont: Font.TextStyle {
         isWidget ? .callout : .title3
@@ -39,33 +45,48 @@ struct CardView: View {
         babyName: String? = nil,
         calculus: Calculus,
         fontColor: Colors,
-        isWidget: Bool = false
+        isWidget: Bool = false,
+        index: Int,
+        delegate: CardViewDelegate? = nil
     ) {
         self.babyName = babyName
         self.calculus = calculus
         self.fontColor = fontColor
         self.isWidget = isWidget
+        self.index = index
+        self.delegate = delegate
     }
     
     var body: some View {
         VStack(alignment: .leading, spacing: Sizes.size02.cgFloat) {
             if let name = babyName {
-                Text("Recém Nascido: \(name)")
-                    .foregroundColor(fontColor.color)
-                    .multilineTextAlignment(.leading)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .font(
-                        .system(
-                            titleFont,
-                            design: .rounded
-                        )
-                        .weight(.medium)
+                HStack {
+                    Text("Recém Nascido: \(name)")
+                        .foregroundColor(fontColor.color)
+                        .multilineTextAlignment(.leading)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .font(
+                            .system(
+                                titleFont,
+                                design: .rounded
+                            )
+                            .weight(.medium)
                     )
+                    
+                    if let delegate, !isWidget {
+                        Button {
+                            delegate.deleteItem(index: index)
+                        } label: {
+                            Label("Deletar", systemImage: "trash")
+                                .foregroundColor(fontColor.color)
+                        }
+                    }
+                }
                 
                 Spacer()
                     .frame(height: Sizes.size12.cgFloat)
                 
-                Text("Cálculo feito em: \(formattedDate)")
+                Text("Dia do Cáculo: \(formattedDate)")
                     .foregroundColor(fontColor.color)
                     .multilineTextAlignment(.leading)
                     .fixedSize(horizontal: false, vertical: true)
@@ -78,17 +99,30 @@ struct CardView: View {
                     )
                 
             } else {
-                Text("Cálculo feito em: \(formattedDate)")
-                    .foregroundColor(fontColor.color)
-                    .multilineTextAlignment(.leading)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .font(
-                        .system(
-                            titleFont,
-                            design: .rounded
-                        )
-                        .weight(.medium)
+                HStack {
+                    Text("Dia do Cáculo: \(formattedDate)")
+                        .foregroundColor(fontColor.color)
+                        .multilineTextAlignment(.leading)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .font(
+                            .system(
+                                titleFont,
+                                design: .rounded
+                            )
+                            .weight(.medium)
                     )
+                    
+                    Spacer()
+                    
+                    if let delegate, !isWidget {
+                        Button {
+                            delegate.deleteItem(index: index)
+                        } label: {
+                            Label("", systemImage: "trash")
+                                .foregroundColor(fontColor.color)
+                        }
+                    }
+                }
             }
             
             Text("Data de Nascimento: \(formattedBirthDate)")
@@ -253,6 +287,12 @@ struct CardView: View {
 }
 
 struct CardView_Previews: PreviewProvider {
+    struct Spy: CardViewDelegate {
+        func deleteItem(index: Int) {
+            print(index)
+        }
+    }
+    
     static var previews: some View {
         VStack {
             CardView(
@@ -264,7 +304,9 @@ struct CardView_Previews: PreviewProvider {
                         totalDays: "12"
                     )
                 ),
-                fontColor: .secondary
+                fontColor: .secondary,
+                index: 0,
+                delegate: Spy()
             )
             .padding(10)
             
@@ -277,7 +319,8 @@ struct CardView_Previews: PreviewProvider {
                         totalDays: "12"
                     )
                 ),
-                fontColor: .secondary
+                fontColor: .secondary,
+                index: 0
             )
             .padding(10)
         }.background(.blue)

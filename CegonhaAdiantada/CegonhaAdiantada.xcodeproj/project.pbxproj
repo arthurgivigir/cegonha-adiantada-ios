@@ -225,7 +225,6 @@
 		5608FC9F29FBFC6300A46B7A /* History */ = {
 			isa = PBXGroup;
 			children = (
-				56605C9829FEE240003B1BC4 /* Components */,
 				5608FCA029FBFC8900A46B7A /* HistoryDataPresenter.swift */,
 				5608FCA129FBFC8900A46B7A /* HistoryDataDataStore.swift */,
 				5608FCA229FBFC8900A46B7A /* HistoryDataInteractor.swift */,
@@ -277,14 +276,6 @@
 				565E8B092A0FF403005904CD /* Info.plist */,
 			);
 			path = CegonhaAdiantadaWidget;
-			sourceTree = "<group>";
-		};
-		56605C9829FEE240003B1BC4 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				56605C9929FEE24D003B1BC4 /* CardView.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		56605CA12A012D94003B1BC4 /* Saves */ = {
@@ -385,6 +376,7 @@
 				56BDD1EE29F5D021004FF71F /* PentagonShape.swift */,
 				56BDD1F029F5D071004FF71F /* LottieView.swift */,
 				56605C9B2A0003CB003B1BC4 /* ScrollWithBackgroundView.swift */,
+				56605C9929FEE24D003B1BC4 /* CardView.swift */,
 				56605C9F2A000EFC003B1BC4 /* EmptyListView.swift */,
 			);
 			path = Components;

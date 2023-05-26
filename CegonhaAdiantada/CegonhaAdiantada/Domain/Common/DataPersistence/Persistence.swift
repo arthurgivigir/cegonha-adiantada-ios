@@ -12,17 +12,29 @@ struct PersistenceController {
     // A singleton for our entire app to use
     static let shared = PersistenceController()
     
+    // A test configuration for SwiftUI previews
+    static let preview = PersistenceController.previewPersistenceController.container.viewContext
+    
     // Storage for Core Data
     let container: NSPersistentCloudKitContainer
-
+    
     // A test configuration for SwiftUI previews
-    static var preview: PersistenceController = {
+    private static var previewPersistenceController: PersistenceController = {
         let controller = PersistenceController(inMemory: true)
         
-        for _ in 0..<10 {
-            let newItem = Item(context: controller.container.viewContext)
-            newItem.timestamp = Date()
+        for _ in 0...10 {
+            let newItem = CalculusJson(context: controller.container.viewContext)
+            newItem.dateTime = .now
+            newItem.json = Calculus(date: .now, birthDate: .now, result: Result(weeks: "1", days: "2", totalDays: "3")).toJson
         }
+        
+        do {
+            try controller.container.viewContext.save()
+        } catch {
+            // Something went wrong 😭
+            print("Failed to save test calculus: \(error)")
+        }
+        
         return controller
     }()
 
