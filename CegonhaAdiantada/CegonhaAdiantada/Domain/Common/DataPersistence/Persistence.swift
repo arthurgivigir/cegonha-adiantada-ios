@@ -10,7 +10,7 @@ import CoreData
 struct PersistenceController {
     
     // A singleton for our entire app to use
-    static let shared = PersistenceController.previewPersistenceController
+    static let shared = PersistenceController()
     
     // A test configuration for SwiftUI previews
     static let preview = PersistenceController.previewPersistenceController.container.viewContext

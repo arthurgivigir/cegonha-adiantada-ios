@@ -76,32 +76,23 @@ struct SavesView: View {
     
     var body: some View {
         NavigationView {
-            ListWithBackgroundView(
+            ScrollWithBackgroundView(
                 fillColor: Colors.quaternary.color.opacity(0.1),
-                lottieAnimation: .caringMom,
-                items: $savedCalculus
+                lottieAnimation: .caringMom
             ) {
-//            GenericList(savedCalculus, id: \.self) { _ in
                 Spacer()
                     .frame(height: 100)
                 
-                List(savedCalculus) {_ in 
-                    Text("")
-                }
-
                 if !savedCalculus.isEmpty {
-                    ForEach(savedCalculus, id: \.dateTime) { savedCalculus in
-                        if let calculus = savedCalculus.json?.toCalculus {
+                    ForEach(savedCalculus.indices, id: \.self) { index in
+                        if let calculus = savedCalculus[index].json?.toCalculus {
                             CardView(
-                                babyName: savedCalculus.babyName,
+                                babyName: savedCalculus[index].babyName,
                                 calculus: calculus,
-                                fontColor: .quaternary
+                                fontColor: .quaternary,
+                                index: index,
+                                delegate: self
                             )
-                            .swipeActions(edge: .trailing) {
-                                Button(role: .destructive, action: { print("") } ) {
-                                    Label("Delete", systemImage: "trash")
-                                }
-                            }
                             .listRowBackground(Color.clear)
                             .padding(.bottom, .size02)
                             .frame(maxWidth: .infinity)
@@ -147,17 +138,22 @@ struct SavesView: View {
         }
     }
     
-    func delete(at offsets: IndexSet) {
-        for offset in offsets {
-            // find this book in our fetch request
-            let calculus = savedCalculus[offset]
-            
+    func delete(index: Int) {
+        let calculus = savedCalculus[index]
+        
+        withAnimation {
             // delete it from the context
             managedObjectContext.delete(calculus)
+            
+            // save the context
+            try? managedObjectContext.save()
         }
-        
-        // save the context
-        try? managedObjectContext.save()
+    }
+}
+
+extension SavesView: CardViewDelegate {
+    func deleteItem(index: Int) {
+        delete(index: index)
     }
 }
 

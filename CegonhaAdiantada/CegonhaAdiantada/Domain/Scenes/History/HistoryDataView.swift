@@ -55,11 +55,12 @@ struct HistoryDataView: View {
                     .frame(height: 100)
                 
                 if !historyData.history.isEmpty {
-                    ForEach(historyData.history, id: \.self) { calculus in
+                    ForEach(historyData.history.indices, id: \.self) { index in
                         CardView(
                             babyName: nil,
-                            calculus: calculus,
-                            fontColor: .secondary
+                            calculus: historyData.history[index],
+                            fontColor: .secondary,
+                            index: index
                         )
                         .listRowBackground(Color.clear)
                         .padding(.bottom, .size02)
