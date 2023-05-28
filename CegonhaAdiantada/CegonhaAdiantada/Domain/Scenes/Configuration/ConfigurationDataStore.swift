@@ -8,5 +8,5 @@
 import Foundation
 
 final class ConfigurationDataStore: ObservableObject {
-    // @Published var value: [String] = []
+     @Published var coffees: [CoffeeProduct] = []
 }
