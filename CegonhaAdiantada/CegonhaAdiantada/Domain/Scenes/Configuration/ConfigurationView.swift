@@ -11,23 +11,43 @@ import InfiniteLoop
 protocol ConfigurationDisplayLogic {
     func display(viewModel: ConfigurationModel.LoadConfiguration.ViewModel)
     func showThanks()
+    func closeLoading()
 }
 
 extension ConfigurationView: ConfigurationDisplayLogic {
+    func closeLoading() {
+        loading(show: false)
+    }
+    
     func showThanks() {
         DispatchQueue.main.async {
-            thanksAlert.toggle()
+            loading()
+            configuration.thanksAlert.toggle()
         }
     }
     
     func display(viewModel: ViewModel) {
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            loading()
+            configuration.showPopUp = true
             configuration.coffees = viewModel.coffees
         }
     }
     
     func fetchTips() {
+        loading()
         interactor?.fetchTips(request: LoadRequest())
+    }
+    
+    private func loading(show: Bool? = nil) {
+        withAnimation(.easeInOut) {
+            if let show {
+                configuration.showLoading = show
+                return
+            }
+            
+            configuration.showLoading.toggle()
+        }
     }
 }
 
@@ -39,8 +59,6 @@ struct ConfigurationView: View {
     var interactor: ConfigurationBusinessLogic?
     
     @ObservedObject var configuration = ConfigurationDataStore()
-    @State private var showPopUp = false
-    @State private var thanksAlert = false
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [
@@ -58,204 +76,219 @@ struct ConfigurationView: View {
     
     var body: some View {
         NavigationView {
-            ScrollWithBackgroundView(
-                fillColor: Colors.secondary.color.opacity(0.1),
-                lottieAnimation: .caringMom
-            ) {
-                VStack {
-                    Spacer()
-                        .frame(height: 100)
-                    
-                    VStack(alignment: .leading, spacing: Sizes.size02.cgFloat) {
-                        VStack {
-                            Text("Que tal apoiar o desenvolvedor?")
-                                .foregroundColor(Colors.secondary.color)
-                                .multilineTextAlignment(.leading)
-                                .fixedSize(horizontal: false, vertical: true)
-                                .font(
-                                    .system(
-                                        .title3,
-                                        design: .rounded
-                                    )
-                                    .weight(.medium)
-                                )
-                            
-                            Text("Pague um café para o desenvolvedor e ajude-o a continuar a desenvolver projetos como o Cegonha Adiantada 😉")
-                                .foregroundColor(Colors.secondary.color)
-                                .multilineTextAlignment(.leading)
-                                .fixedSize(horizontal: false, vertical: true)
-                                .font(
-                                    .system(
-                                        .body,
-                                        design: .rounded
-                                    )
-                                    .weight(.light)
-                                )
-                            
-                            Spacer()
-                                .frame(height: Sizes.size18.cgFloat)
-                            
-                            LargeButton(
-                                title: "Pague um Café ☕️",
-                                backgroundColor: Color.white,
-                                foregroundColor: Colors.secondary.color
-                            ) {
-                                showPopUp.toggle()
-                            }
-                        }
-                        .padding(.vertical, Sizes.size16.cgFloat)
-                        .padding(.horizontal, Sizes.size18.cgFloat)
+            ZStack {
+                ScrollWithBackgroundView(
+                    fillColor: Colors.secondary.color.opacity(0.1),
+                    lottieAnimation: .caringMom
+                ) {
+                    VStack {
+                        Spacer()
+                            .frame(height: 100)
                         
-                        VStack {
-                            Text("Desenvolvedor:")
-                                .foregroundColor(Colors.secondary.color)
-                                .multilineTextAlignment(.leading)
-                                .fixedSize(horizontal: false, vertical: true)
-                                .font(
-                                    .system(
-                                        .title3,
-                                        design: .rounded
+                        VStack(alignment: .leading, spacing: Sizes.size02.cgFloat) {
+                            VStack {
+                                Text("Que tal apoiar o desenvolvedor?")
+                                    .foregroundColor(Colors.secondary.color)
+                                    .multilineTextAlignment(.leading)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .font(
+                                        .system(
+                                            .title3,
+                                            design: .rounded
+                                        )
+                                        .weight(.medium)
                                     )
-                                    .weight(.medium)
-                                )
-                            
-                            Text("Arthur Gradim Givigir")
-                                .foregroundColor(Colors.secondary.color)
-                                .multilineTextAlignment(.leading)
-                                .fixedSize(horizontal: false, vertical: true)
-                                .font(
-                                    .system(
-                                        .body,
-                                        design: .rounded
+                                
+                                Text("Pague um café para o desenvolvedor e ajude-o a continuar a desenvolver projetos como o Cegonha Adiantada 😉")
+                                    .foregroundColor(Colors.secondary.color)
+                                    .multilineTextAlignment(.leading)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .font(
+                                        .system(
+                                            .body,
+                                            design: .rounded
+                                        )
+                                        .weight(.light)
                                     )
-                                    .weight(.light)
-                                )
-                            
-                            Spacer()
-                                .frame(height: Sizes.size18.cgFloat)
-                            
-                            Text("Imagens e animações:")
-                                .foregroundColor(Colors.secondary.color)
-                                .multilineTextAlignment(.leading)
-                                .fixedSize(horizontal: false, vertical: true)
-                                .font(
-                                    .system(
-                                        .title3,
-                                        design: .rounded
-                                    )
-                                    .weight(.medium)
-                                )
-                            
-                            Text("Lottie")
-                                .foregroundColor(Colors.secondary.color)
-                                .multilineTextAlignment(.leading)
-                                .fixedSize(horizontal: false, vertical: true)
-                                .font(
-                                    .system(
-                                        .body,
-                                        design: .rounded
-                                    )
-                                    .weight(.light)
-                                )
-                            
-                            Text("Autores das animações:")
-                                .foregroundColor(Colors.secondary.color)
-                                .multilineTextAlignment(.leading)
-                                .fixedSize(horizontal: false, vertical: true)
-                                .font(
-                                    .system(
-                                        .title3,
-                                        design: .rounded
-                                    )
-                                    .weight(.medium)
-                                )
-                            
-                            Text("Md. Imam Hossain ")
-                                .foregroundColor(Colors.secondary.color)
-                                .multilineTextAlignment(.leading)
-                                .fixedSize(horizontal: false, vertical: true)
-                                .font(
-                                    .system(
-                                        .body,
-                                        design: .rounded
-                                    )
-                                    .weight(.light)
-                                )
-                            
-                            Text("Parsa Barati")
-                                .foregroundColor(Colors.secondary.color)
-                                .multilineTextAlignment(.leading)
-                                .fixedSize(horizontal: false, vertical: true)
-                                .font(
-                                    .system(
-                                        .body,
-                                        design: .rounded
-                                    )
-                                    .weight(.light)
-                                )
-                            
-                            Text("Ping Lu")
-                                .foregroundColor(Colors.secondary.color)
-                                .multilineTextAlignment(.leading)
-                                .fixedSize(horizontal: false, vertical: true)
-                                .font(
-                                    .system(
-                                        .body,
-                                        design: .rounded
-                                    )
-                                    .weight(.light)
-                                )
-                            
-                            LargeButton(
-                                title: "Licença Lottie",
-                                backgroundColor: Color.white,
-                                foregroundColor: Colors.secondary.color
-                            ) {
-                                if let url = URL(string: "https://lottiefiles.com/page/license") {
-                                    UIApplication.shared.open(url)
+                                
+                                Spacer()
+                                    .frame(height: Sizes.size18.cgFloat)
+                                
+                                LargeButton(
+                                    title: "Pague um Café ☕️",
+                                    backgroundColor: Color.white,
+                                    foregroundColor: Colors.secondary.color
+                                ) {
+                                    fetchTips()
                                 }
                             }
+                            .padding(.vertical, Sizes.size16.cgFloat)
+                            .padding(.horizontal, Sizes.size18.cgFloat)
+                            
+                            VStack {
+                                Text("Desenvolvedor:")
+                                    .foregroundColor(Colors.secondary.color)
+                                    .multilineTextAlignment(.leading)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .font(
+                                        .system(
+                                            .title3,
+                                            design: .rounded
+                                        )
+                                        .weight(.medium)
+                                    )
+                                
+                                Text("Arthur Gradim Givigir")
+                                    .foregroundColor(Colors.secondary.color)
+                                    .multilineTextAlignment(.leading)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .font(
+                                        .system(
+                                            .body,
+                                            design: .rounded
+                                        )
+                                        .weight(.light)
+                                    )
+                                
+                                Spacer()
+                                    .frame(height: Sizes.size18.cgFloat)
+                                
+                                Text("Imagens e animações:")
+                                    .foregroundColor(Colors.secondary.color)
+                                    .multilineTextAlignment(.leading)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .font(
+                                        .system(
+                                            .title3,
+                                            design: .rounded
+                                        )
+                                        .weight(.medium)
+                                    )
+                                
+                                Text("Lottie")
+                                    .foregroundColor(Colors.secondary.color)
+                                    .multilineTextAlignment(.leading)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .font(
+                                        .system(
+                                            .body,
+                                            design: .rounded
+                                        )
+                                        .weight(.light)
+                                    )
+                                
+                                Text("Autores das animações:")
+                                    .foregroundColor(Colors.secondary.color)
+                                    .multilineTextAlignment(.leading)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .font(
+                                        .system(
+                                            .title3,
+                                            design: .rounded
+                                        )
+                                        .weight(.medium)
+                                    )
+                                
+                                Text("Md. Imam Hossain ")
+                                    .foregroundColor(Colors.secondary.color)
+                                    .multilineTextAlignment(.leading)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .font(
+                                        .system(
+                                            .body,
+                                            design: .rounded
+                                        )
+                                        .weight(.light)
+                                    )
+                                
+                                Text("Parsa Barati")
+                                    .foregroundColor(Colors.secondary.color)
+                                    .multilineTextAlignment(.leading)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .font(
+                                        .system(
+                                            .body,
+                                            design: .rounded
+                                        )
+                                        .weight(.light)
+                                    )
+                                
+                                Text("Ping Lu")
+                                    .foregroundColor(Colors.secondary.color)
+                                    .multilineTextAlignment(.leading)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .font(
+                                        .system(
+                                            .body,
+                                            design: .rounded
+                                        )
+                                        .weight(.light)
+                                    )
+                                
+                                LargeButton(
+                                    title: "Licença Lottie",
+                                    backgroundColor: Color.white,
+                                    foregroundColor: Colors.secondary.color
+                                ) {
+                                    if let url = URL(string: "https://lottiefiles.com/page/license") {
+                                        UIApplication.shared.open(url)
+                                    }
+                                }
+                            }
+                            .padding(.vertical, Sizes.size16.cgFloat)
+                            .padding(.horizontal, Sizes.size18.cgFloat)
                         }
-                        .padding(.vertical, Sizes.size16.cgFloat)
-                        .padding(.horizontal, Sizes.size18.cgFloat)
+                        .frame(maxWidth: .infinity)
+                        .multilineTextAlignment(.leading)
+                        .background {
+                            RoundedRectangle(
+                                cornerRadius: 10,
+                                style: .continuous
+                            )
+                            .fill(.white)
+                            .padding(.horizontal, Sizes.size10.cgFloat)
+                        }
+                        
+                        Spacer()
+                            .frame(height: 150)
                     }
-                    .frame(maxWidth: .infinity)
-                    .multilineTextAlignment(.leading)
-                    .background {
-                        RoundedRectangle(
-                            cornerRadius: 10,
-                            style: .continuous
-                        )
-                        .fill(.white)
-                        .padding(.horizontal, Sizes.size10.cgFloat)
-                    }
-                    
-                    Spacer()
-                        .frame(height: 150)
                 }
-            }
-            .edgesIgnoringSafeArea(.bottom)
-            .navigationBarTitle(
-                Text("Sobre")
-            )
-            .alert(isPresented: $thanksAlert) {
-                Alert(
-                    title: Text("Muito obrigado!"),
-                    message: Text("Muito obrigado por apoiar o Cegonha Adiantada!"),
-                    dismissButton: .default(Text("Valeu!"))
+                .edgesIgnoringSafeArea(.bottom)
+                .navigationBarTitle(
+                    Text("Sobre")
                 )
-            }
-            .popup(isPresented: $showPopUp) {
-                CoffeeView(coffees: configuration.coffees, delegate: self)
-            } customize: {
-                $0.closeOnTapOutside(true)
-                    .closeOnTap(false)
-                    .position(.top)
-                    .animation(.easeInOut)
-                    .isOpaque(true)
-            }
-            .task {
-                fetchTips()
+                .alert(isPresented: $configuration.thanksAlert) {
+                    Alert(
+                        title: Text("Muito obrigado!"),
+                        message: Text("Muito obrigado por apoiar o Cegonha Adiantada!"),
+                        dismissButton: .default(Text("Valeu!"))
+                    )
+                }
+                .popup(isPresented: $configuration.showPopUp) {
+                    CoffeeView(coffees: configuration.coffees, delegate: self)
+                } customize: {
+                    $0.closeOnTapOutside(true)
+                        .closeOnTap(false)
+                        .position(.top)
+                        .animation(.easeInOut)
+                        .isOpaque(true)
+                }
+                
+                VStack {
+                    ProgressView("Carregando...")
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .padding(50)
+                        .tint(Colors.secondary.color)
+                        .foregroundColor(Colors.secondary.color)
+                        .background {
+                            Color.white
+                        }
+                        .cornerRadius(20)
+                }
+                .edgesIgnoringSafeArea([.top, .bottom])
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Colors.secondary.color.opacity(0.2))
+                .opacity(configuration.showLoading ? 1 : 0)
             }
         }
     }
@@ -263,11 +296,12 @@ struct ConfigurationView: View {
 
 extension ConfigurationView: CoffeeDelegate {
     func closePopUp() {
-        showPopUp.toggle()
+        configuration.showPopUp.toggle()
     }
     
     func purchase(coffee: Coffee) {
-        showPopUp.toggle()
+        loading()
+        configuration.showPopUp.toggle()
         interactor?.purchase(request: PurchaseRequest(coffee: coffee))
     }
 }

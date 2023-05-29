@@ -10,6 +10,7 @@ import Foundation
 protocol ConfigurationPresentationLogic {
     func present(response: ConfigurationModel.LoadConfiguration.Response)
     func thanksAlert()
+    func closeLoading()
 }
 
 final class ConfigurationPresenter {
@@ -25,5 +26,9 @@ extension ConfigurationPresenter: ConfigurationPresentationLogic {
     
     func present(response: Response) {
         view?.display(viewModel: ViewModel(coffees: response.coffees))
+    }
+    
+    func closeLoading() {
+        view?.closeLoading()
     }
 }

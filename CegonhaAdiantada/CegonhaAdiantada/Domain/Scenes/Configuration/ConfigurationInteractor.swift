@@ -82,6 +82,9 @@ extension ConfigurationInteractor: SKProductsRequestDelegate, SKPaymentTransacti
                 presenter?.thanksAlert()
                 skPaymentQueue.finishTransaction(payment)
                 skPaymentQueue.remove(self)
+                
+            case .failed:
+                presenter?.closeLoading()
             default:
                 break
             }
@@ -99,7 +102,8 @@ extension ConfigurationInteractor: SKProductsRequestDelegate, SKPaymentTransacti
             
             return CoffeeProduct(title: coffeeEnum.title, price: price, coffee: coffeeEnum)
         }
-        presenter?.present(response: Response(coffees: coffeesProducts))
+    
+        self.presenter?.present(response: Response(coffees: coffeesProducts))
     }
 }
 
