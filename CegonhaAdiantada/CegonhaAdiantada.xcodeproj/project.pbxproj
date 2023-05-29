@@ -944,6 +944,7 @@
 				DEVELOPMENT_TEAM = H7EDV5524K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CegonhaAdiantada/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Cegonha;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -984,6 +985,7 @@
 				DEVELOPMENT_TEAM = H7EDV5524K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CegonhaAdiantada/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Cegonha;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
