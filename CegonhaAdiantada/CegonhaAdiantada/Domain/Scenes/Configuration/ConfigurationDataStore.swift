@@ -8,5 +8,8 @@
 import Foundation
 
 final class ConfigurationDataStore: ObservableObject {
-    // @Published var value: [String] = []
+    @Published var coffees: [CoffeeProduct] = []
+    @Published var showPopUp = false
+    @Published var thanksAlert = false
+    @Published var showLoading = false
 }

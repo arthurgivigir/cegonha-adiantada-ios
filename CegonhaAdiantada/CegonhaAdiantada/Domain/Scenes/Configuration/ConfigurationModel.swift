@@ -7,12 +7,22 @@
 //
 import Foundation
 
-enum Configuration {
+enum ConfigurationModel {
     enum LoadConfiguration {
         struct Request {}
         
-        struct Response {}
+        struct Response {
+            var coffees: [CoffeeProduct] = []
+        }
         
-        struct ViewModel {}
+        struct ViewModel {
+            var coffees: [CoffeeProduct] = []
+        }
+    }
+    
+    enum PurchaseTips {
+        struct Request {
+            var coffee: Coffee
+        }
     }
 }

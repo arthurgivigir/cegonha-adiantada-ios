@@ -65,6 +65,7 @@
 		56BDD1F929F5D71C004FF71F /* stork_baby.json in Resources */ = {isa = PBXBuildFile; fileRef = 56BDD1F829F5D71C004FF71F /* stork_baby.json */; };
 		56BDD1FB29F6AA3A004FF71F /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDD1FA29F6AA3A004FF71F /* TabBarView.swift */; };
 		56BDD1FE29F72E13004FF71F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDD1FD29F72E13004FF71F /* MainView.swift */; };
+		56CECB232A241CB400080949 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CECB222A241CB400080949 /* StoreKit.framework */; };
 		56FAED0B29E763E500022043 /* CegonhaAdiantadaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FAED0A29E763E500022043 /* CegonhaAdiantadaApp.swift */; };
 		56FAED0F29E763E600022043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56FAED0E29E763E600022043 /* Assets.xcassets */; };
 		56FAED1229E763E600022043 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56FAED1129E763E600022043 /* Preview Assets.xcassets */; };
@@ -169,6 +170,8 @@
 		56BDD1F829F5D71C004FF71F /* stork_baby.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stork_baby.json; sourceTree = "<group>"; };
 		56BDD1FA29F6AA3A004FF71F /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		56BDD1FD29F72E13004FF71F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		56CECB212A23F85000080949 /* TipsConfiguration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; name = TipsConfiguration.storekit; path = CegonhaAdiantada/TipsConfiguration.storekit; sourceTree = "<group>"; };
+		56CECB222A241CB400080949 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		56FAED0729E763E500022043 /* CegonhaAdiantada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CegonhaAdiantada.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FAED0A29E763E500022043 /* CegonhaAdiantadaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CegonhaAdiantadaApp.swift; sourceTree = "<group>"; };
 		56FAED0E29E763E600022043 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -202,6 +205,7 @@
 				56BDD1F429F5D18C004FF71F /* PopupView in Frameworks */,
 				56FE443B29EB4C20007448B9 /* InfiniteLoop in Frameworks */,
 				56AA83E029EF4C540049ABB2 /* Lottie in Frameworks */,
+				56CECB232A241CB400080949 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +406,7 @@
 		56FAECFE29E763E500022043 = {
 			isa = PBXGroup;
 			children = (
+				56CECB212A23F85000080949 /* TipsConfiguration.storekit */,
 				565E8B142A0FF46D005904CD /* CegonhaAdiantadaWidgetExtension.entitlements */,
 				56FAED0929E763E500022043 /* CegonhaAdiantada */,
 				56FAED2029E763E600022043 /* CegonhaAdiantadaTests */,
@@ -473,6 +478,7 @@
 		56FE443929EB4C20007448B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				56CECB222A241CB400080949 /* StoreKit.framework */,
 				565E8AFE2A0FF401005904CD /* WidgetKit.framework */,
 				565E8B002A0FF401005904CD /* SwiftUI.framework */,
 			);
@@ -761,7 +767,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = CegonhaAdiantadaWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = H7EDV5524K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CegonhaAdiantadaWidget/Info.plist;
@@ -772,7 +778,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.givigir.CegonhaAdiantada.CegonhaAdiantadaWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -789,7 +795,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = CegonhaAdiantadaWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = H7EDV5524K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CegonhaAdiantadaWidget/Info.plist;
@@ -800,7 +806,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.givigir.CegonhaAdiantada.CegonhaAdiantadaWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -933,11 +939,12 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = CegonhaAdiantada/CegonhaAdiantada.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"CegonhaAdiantada/Preview Content\"";
 				DEVELOPMENT_TEAM = H7EDV5524K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CegonhaAdiantada/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Cegonha;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -952,12 +959,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.givigir.CegonhaAdiantada;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -970,11 +980,12 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = CegonhaAdiantada/CegonhaAdiantada.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"CegonhaAdiantada/Preview Content\"";
 				DEVELOPMENT_TEAM = H7EDV5524K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CegonhaAdiantada/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Cegonha;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -989,12 +1000,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.givigir.CegonhaAdiantada;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

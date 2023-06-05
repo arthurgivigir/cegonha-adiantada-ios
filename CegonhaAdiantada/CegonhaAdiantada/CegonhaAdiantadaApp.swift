@@ -10,11 +10,16 @@ import SwiftUI
 @main
 struct CegonhaAdiantadaApp: App {
     @Environment(\.scenePhase) var scenePhase
+    
+    @ObservedObject var savesData = SavesDataStore()
+    @ObservedObject var birthCalculation = BirthCalculationDataStore()
+    @ObservedObject var historyData = HistoryDataDataStore()
+    
     let persistenceController = PersistenceController.shared
     
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainView(savesData: savesData, birthCalculation: birthCalculation, historyData: historyData)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
         .onChange(of: scenePhase) { _ in

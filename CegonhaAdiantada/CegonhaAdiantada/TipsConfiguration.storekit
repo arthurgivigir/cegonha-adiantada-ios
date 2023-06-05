@@ -1,0 +1,93 @@
+{
+  "identifier" : "67CD0DDB",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "5.00",
+      "familyShareable" : false,
+      "internalID" : "BD6064D3",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "tip1",
+      "referenceName" : "1 xícara ",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "10.00",
+      "familyShareable" : false,
+      "internalID" : "95A6A9D4",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "tip2",
+      "referenceName" : "2 xícaras",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "15.00",
+      "familyShareable" : false,
+      "internalID" : "940D2F94",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "tip3",
+      "referenceName" : "1 café chique",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "20.00",
+      "familyShareable" : false,
+      "internalID" : "D0FFAC51",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "tip4",
+      "referenceName" : "2 cafés chiques",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "25.00",
+      "familyShareable" : false,
+      "internalID" : "871F6815",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "tip5",
+      "referenceName" : "Café da sereia",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}

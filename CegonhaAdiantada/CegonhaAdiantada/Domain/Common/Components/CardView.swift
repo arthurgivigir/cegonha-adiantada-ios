@@ -77,7 +77,7 @@ struct CardView: View {
                         Button {
                             delegate.deleteItem(index: index)
                         } label: {
-                            Label("Deletar", systemImage: "trash")
+                            Label("", systemImage: "trash")
                                 .foregroundColor(fontColor.color)
                         }
                     }
